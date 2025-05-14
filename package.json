@@ -1,0 +1,37 @@
+{
+  "name": "charm-acc",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "seed-wwurm": "node ./app/data/wwurm/seed.js",
+    "seed-charm": "node ./app/data/charm/seed.js",
+    "seed2-charm": "node ./app/data/charm/seed2.js",
+    "dump-charm": "node ./app/data/charm/dump.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.779.0",
+    "@aws-sdk/credential-providers": "^3.787.0",
+    "aws-sdk": "^2.1692.0",
+    "next": "15.2.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
+  }
+}
