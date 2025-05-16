@@ -1,5 +1,4 @@
 "use server"
-
 import { fetchWrapper } from "../ts/fetchWrapper";
 
 export const getCategories = async () => await fetchWrapper.get(`categories`);
@@ -14,7 +13,7 @@ export const getProductPageData = async (slug : string) =>
     await fetchWrapper.get(`products/getProductPage/${slug}`);
    
 
-// export async function getCount(ITEMS_PER_PAGE: number) {
-//     const count = productsService.count(ITEMS_PER_PAGE)
-//     return count;
-// }
+export async function getCount(ITEMS_PER_PAGE: number) {
+    const count = await fetchWrapper.get('products/getCount');
+    return Math.ceil(Number(count) / ITEMS_PER_PAGE);
+}

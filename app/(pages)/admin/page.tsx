@@ -1,7 +1,8 @@
 
 import { deleteProduct } from "@/app/actions/delete-action";
-import { findAll, getCategories, getCount } from "@/app/actions/get-actions"
+import { findAll, getCount } from "@/app/actions/get-actions"
 import { HREF } from "@/app/aws-images/s3-configuration";
+import { IProductDTO } from "@/app/DTO/productDTO";
 import { BinIcon, AddIcon, EditIcon } from "@/app/icons-svg";
 const { ASPECT_RATIO_IMAGE } = require( "@/app/templates");
 
@@ -19,9 +20,7 @@ export default async function Page(props: { searchParams?: Promise<{ page?: stri
     const currentPage = Number(searchParams?.page) || 1;
     const count = await getCount(ITEMS_PER_PAGE);  
     
-    const productsDTO = await findAll(currentPage, ITEMS_PER_PAGE);
-
-    const categories = await getCategories();
+    const productsDTO = await findAll(currentPage, ITEMS_PER_PAGE) as Array<IProductDTO>;
 
     return (
         <div className="admin">
