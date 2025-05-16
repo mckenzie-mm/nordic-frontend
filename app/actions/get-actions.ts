@@ -4,21 +4,18 @@
 import { fromCategoriesDomain, fromCategoryDomain } from "../DTO-mappings/category-mappings";
 
 import { fromProductDomain, fromProductsDomain } from "../DTO-mappings/product-mappings";
+import { IProductDTO } from "../DTO/productDTO";
+import { fetchWrapper } from "../ts/fetchWrapper";
 
 
-// export async function getCategories() {
-//     const categories = await categoriesService.get();
-//     const categoriesDTO = fromCategoriesDomain(categories)
-//     return categoriesDTO;
-// }
+export async function getCategories() {
+    const resp = await fetchWrapper.get(`categories`);
+    return resp;
+}
 
 export async function findAll(currentPage: number, ITEMS_PER_PAGE: number) {
-
-    const categories = await categoriesService.get();
-
-    const products = await productsService.get(currentPage, ITEMS_PER_PAGE);
-    const productDTO = fromProductsDomain(products, categories);
-    return productDTO;
+    const resp = await fetchWrapper.get(`products/findAll/${currentPage}/${ITEMS_PER_PAGE}`);
+    return resp;
 }
 
 // export async function findByCategory(categoryId: number, currentPage: number, ITEMS_PER_PAGE: number) {
