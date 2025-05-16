@@ -3,8 +3,6 @@
 
 import { fromCategoriesDomain, fromCategoryDomain } from "../DTO-mappings/category-mappings";
 
-import { fromProductDomain, fromProductsDomain } from "../DTO-mappings/product-mappings";
-import { IProductDTO } from "../DTO/productDTO";
 import { fetchWrapper } from "../ts/fetchWrapper";
 
 
@@ -18,13 +16,10 @@ export async function findAll(currentPage: number, ITEMS_PER_PAGE: number) {
     return resp;
 }
 
-// export async function findByCategory(categoryId: number, currentPage: number, ITEMS_PER_PAGE: number) {
-//     const categories = await categoriesService.get();
-
-//    const products = await productsService.getByCategory(categoryId, currentPage, ITEMS_PER_PAGE)
-//    const productDTO = fromProductsDomain(products, categories);
-//    return productDTO;
-// }
+export async function findByCategory(category: string, currentPage: number, ITEMS_PER_PAGE: number) {
+   const resp = await fetchWrapper.get(`products/findByCategory/${category}/${currentPage}/${ITEMS_PER_PAGE}`);
+    return resp;
+}
 
 // export async function getProduct(slug: string) {
 //     const categories = await categoriesService.get();

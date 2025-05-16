@@ -3,18 +3,17 @@ import { useState } from "react";
 import { findAll, findByCategory } from "../actions/get-actions";
 import Card from "../ui/card";
 import { IProductDTO } from "../DTO/productDTO";
-import { ICategoryDTO } from "../DTO/categoryDTO";
 const { LOAD_MORE, ALL_PRODUCT_LOADED } = require("../templates");
 
 const ITEMS_PER_PAGE = 12;
 
 export default function ProductsList({ 
     inititalProducts,
-    categoryId,
+    category,
     hasMore
 }: { 
     inititalProducts: Array<IProductDTO>,
-    categoryId?: number,
+    category?: string,
     hasMore: boolean,
 }) {
 
@@ -26,8 +25,8 @@ export default function ProductsList({
     if (hasMoreData) {
 
       let apiPosts: ConcatArray<IProductDTO>;
-      if (categoryId) {
-        apiPosts = await findByCategory(categoryId, page, ITEMS_PER_PAGE);
+      if (category) {
+        apiPosts = await findByCategory(category, page, ITEMS_PER_PAGE);
       } else {
         apiPosts = await findAll(page, ITEMS_PER_PAGE);
       }

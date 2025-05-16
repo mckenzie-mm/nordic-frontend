@@ -32,7 +32,7 @@ export default function Dropdown({ list, name } : {
             <ul className={`dropdown-content ${state}`} >
                 <li key={-1} onClick={() => handleNavigation("")}>{PRODUCTS_NAV_FIRST_NAME}</li>
             {
-                list.map(({slug, name}, idx) => <li key={idx} onClick={() => handleNavigation(slug)}>{name}</li>)
+                list.map(({name}, idx) => <li key={idx} onClick={() => handleNavigation(name)}>{name}</li>)
             }
             </ul>
         </li>
