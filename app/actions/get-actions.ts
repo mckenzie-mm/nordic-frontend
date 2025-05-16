@@ -1,8 +1,6 @@
 "use server"
 
 
-import { fromCategoriesDomain, fromCategoryDomain } from "../DTO-mappings/category-mappings";
-
 import { fetchWrapper } from "../ts/fetchWrapper";
 
 
@@ -17,49 +15,19 @@ export async function findAll(currentPage: number, ITEMS_PER_PAGE: number) {
 }
 
 export async function findByCategory(category: string, currentPage: number, ITEMS_PER_PAGE: number) {
-   const resp = await fetchWrapper.get(`products/findByCategory/${category}/${currentPage}/${ITEMS_PER_PAGE}`);
+    const resp = await fetchWrapper.get(`products/findByCategory/${category}/${currentPage}/${ITEMS_PER_PAGE}`);
     return resp;
 }
 
-// export async function getProduct(slug: string) {
-//     const categories = await categoriesService.get();
+export async function getProductPageData(slug : string) {
 
-//     const product = await productsService.getProductBySlug(slug);
-//     const productDTO = fromProductDomain(product, categories);
-//     return productDTO;
-// }
+    const resp = await fetchWrapper.get(`products/getProductPage/${slug}`);
 
-// export async function getCategory(slug: string) {
-//    const category = await categoriesService.getBySlug(slug);
-//    const categoryDTO= fromCategoryDomain(category);
-//    return categoryDTO;
-// }
+    console.log("resp -prod page: ", resp)
 
-// export async function getCategoryById(id: number) {
-//     const db = await openDb();
-//     const res = await db.all(`SELECT * FROM categories WHERE id = ${id}`);
-//     return res[0];
-// }
+    return resp;
+}
 
-// export async function getSimilar(categoryId: number, id: number) {
-//     const categories = await getCategories();
-//     const products = await productsService.getSimilar(categoryId, id);
-//     const productDTO = fromProductsDomain(products, categories);
-//     return productDTO;
-// }
-
-// export async function getProductPageData(slug : string) {
-//     const categories = await getCategories();
-//     const product = await productsService.getProductBySlug(slug);
-//     const category = await categoriesService.getById(product.categoryId);
-//     const products = await productsService.getSimilar(category.id, product.id);
-
-//     return { 
-//         productDTO: fromProductDomain(product, categories),
-//         productsDTO: fromProductsDomain(products, categories),
-//         categoryDTO: fromCategoryDomain(category)
-//     }
-// }
 
 // export async function getCount(ITEMS_PER_PAGE: number) {
 //     const count = productsService.count(ITEMS_PER_PAGE)

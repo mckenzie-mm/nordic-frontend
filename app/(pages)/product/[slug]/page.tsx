@@ -3,21 +3,19 @@ import Card from "@/app/ui/card";
 import Link from "next/link";
 
 const { ICON_LIST} = require("@/app/templates");
-import { getCategories, getProductPageData } from "@/app/actions/get-actions";
+import { getProductPageData } from "@/app/actions/get-actions";
 import CartAddWidget from "@/app/ui-client/cart-add-widget";
 import ImageWidget from "@/app/ui-client/image-widget";
 
 export default async function Product({ params }: {params: Promise<{ slug: string }>}) {
     const { slug } = await params;
-    const { productDTO, productsDTO, categoryDTO} = await getProductPageData(slug);
-
-    const categories = await getCategories();
+    const { productDTO, productsDTO } = await getProductPageData(slug);
 
     type IBreadCrumb = { name: string; url: string; }
 
     const breadCrumbs: Array<IBreadCrumb> = [
         { name: "Shop", url: "/"},
-        { name: categoryDTO.slug, url: `/${categoryDTO.slug}`}, 
+        { name: productDTO.category, url: `/${productDTO.category}`}, 
         { name: productDTO.name, url: productDTO.name}
     ]
     const len = breadCrumbs.length;
