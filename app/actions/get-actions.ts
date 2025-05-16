@@ -15,6 +15,7 @@ export async function getCategories() {
 }
 
 export async function findAll(currentPage: number, ITEMS_PER_PAGE: number) {
+
     const categories = await categoriesService.get();
 
     const products = await productsService.get(currentPage, ITEMS_PER_PAGE);
