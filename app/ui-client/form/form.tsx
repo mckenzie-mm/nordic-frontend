@@ -6,7 +6,7 @@ import Link from "next/link";
 
 
 import { _Object } from "@aws-sdk/client-s3";
-import { ChangeEvent, ChangeEventHandler, useActionState, useEffect, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, useEffect, useState } from "react";
 
 import { IFormState } from "../../validation/validate";
 import { ICategoryDTO } from "../../DTO/categoryDTO";
@@ -40,9 +40,6 @@ export default function Form({ formDTO, edit, categoriesDTO }: {
 
     const albumPhotosKey = encodeURIComponent(categoryName) + "/"; 
 
-    const initialState: IFormState = { message: null, errors: {} };
-    const [state, formAction] = useActionState(handleProduct, initialState);
-
     const handleSelect: ChangeEventHandler = (e: ChangeEvent<HTMLSelectElement>) => {
         setCategoryName(e.target.value);  
         if (e.target.value === formDTO.category) {
@@ -61,11 +58,11 @@ export default function Form({ formDTO, edit, categoriesDTO }: {
     }
     
     return (
-        <form className="product" action={formAction}>          
+        <form className="product" action={handleProduct}>          
             <input 
                 type="text" 
                 name="id" 
-                defaultValue={formDTO?.id || ""} 
+                defaultValue={formDTO?.id || -1} 
                 hidden
             />
             <section className="section">
@@ -77,20 +74,6 @@ export default function Form({ formDTO, edit, categoriesDTO }: {
                     </div>   
                 </div> 
             </section>
-            { 
-             state && state.message ? 
-                <section className="section">
-                    <div className="error-msg-wrap" >
-                        <p className="error-msg">
-                            {state.message} 
-                            {state.errors?.categoryId ? " Please choose a category" : ""} 
-                            {state.errors?.name ? " A product with that name already exists" : ""} 
-                        </p>
-                        <button className="error-msg-btn">x</button>
-                    </div>
-                </section> 
-                : null
-            }
             
             <section className="section">
                 <div className="edit-product-grid">
@@ -122,7 +105,7 @@ export default function Form({ formDTO, edit, categoriesDTO }: {
                                                         type="checkbox" 
                                                         id={photoKey} 
                                                         value={name} 
-                                                        name={"image"} 
+                                                        name={"SmallImage"} 
                                                         onChange={handleSelectImage}
                                                         defaultChecked={formDTO.smallImage!.includes(name)}
                                                     />
@@ -163,13 +146,13 @@ export default function Form({ formDTO, edit, categoriesDTO }: {
                         />
                          <div style={{display: "flex", justifyContent: "space-between"}}>
                             <div>
-                                <label htmlFor="price" className="edit-form-label">Price $:</label>
+                                <label htmlFor="Price" className="edit-form-label">Price $:</label>
                                 <input 
                                     className="edit-form-price"
                                     type="number" 
                                     id="price" 
                                     defaultValue={formDTO.price.toFixed(2)} 
-                                    name="price" 
+                                    name="Price" 
                                     min="1" 
                                     step=".01"
                                 />

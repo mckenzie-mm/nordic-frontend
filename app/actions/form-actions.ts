@@ -2,25 +2,14 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { IFormState, ValidateProduct } from "../validation/validate";
 import { fromFormData, toFormDTO } from "../DTO-mappings/form-data-mappings";
-import { getCategories } from "./get-actions";
 import { fetchWrapper } from "../ts/fetchWrapper";
 
-export async function handleProduct(prevState: IFormState, req: FormData) {
-
-   // const product = fromFormData(formData);
-
-    const formData = new FormData();
-
-    formData.set("Name", "MacBook");
-    formData.set("Category", "test");
-    formData.set("SubCategory", "MacBook");
+export async function handleProduct(req: FormData) {
 
     const response = await fetch("http://localhost:5037/products/form", {
         method: "POST",
-        // body: new URLSearchParams({ Name: "example", Category: "password", SubCategory: "mac" }),
-        body: formData
+        body: req
     });
 
     console.log("res ", response)

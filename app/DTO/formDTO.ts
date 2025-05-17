@@ -7,3 +7,11 @@ export type IFormDTO = {
   smallImage: string,
   availability: number,
 }
+
+
+export type IItemDTO = {
+  id?: number,
+  name: string,
+  category: string,
+  smallImage: string
+}
