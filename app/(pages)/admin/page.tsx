@@ -6,11 +6,8 @@ import { IProductDTO } from "@/app/DTO/productDTO";
 import { BinIcon, AddIcon, EditIcon } from "@/app/icons-svg";
 const { ASPECT_RATIO_IMAGE } = require( "@/app/templates");
 
-
 import Pagination from "@/app/ui-client/pagination";
 import Link from "next/link";
-
-
 
 const ITEMS_PER_PAGE = 5;
 

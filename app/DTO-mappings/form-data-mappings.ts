@@ -24,7 +24,7 @@ export const toFormDTO = (product: IProduct, categories: Array<ICategory>) => {
     formDTO.name = product.name;
     formDTO.description = product.description;
     formDTO.price = product.price / 100;
-    formDTO.category = categories.find(category => product.categoryId === category.id)!.name.toLowerCase();
+    formDTO.category = product.category;
     formDTO.smallImage = product.smallImage;
     formDTO.availability = product.availability;
   }

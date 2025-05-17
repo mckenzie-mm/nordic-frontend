@@ -21,11 +21,11 @@ async function put(url: string, body: unknown) {
     return handleResponse(response);
 }
 
-async function post(url: string, body: unknown) {
+async function post(url: string, formData: FormData) {
     const requestOptions = {
         method: 'POST',
-        headers: await getHeaders(),
-        body: JSON.stringify(body)
+        headers: await getFormHeaders(),
+        body: formData
     };
     const response = await fetch(baseUrl + url, requestOptions);
     return handleResponse(response);
@@ -59,6 +59,16 @@ async function handleResponse(response: Response) {
         }
         return {error}
     }
+}
+
+async function getFormHeaders(): Promise<Headers> {
+    const session = null; //await auth();
+    const headers = new Headers();
+    headers.set('Content-type', 'multipart/form-data');
+    if (session) {
+        // headers.set('Authorization', 'Bearer ' + session.accessToken)
+    }
+    return headers;
 }
 
 async function getHeaders(): Promise<Headers> {
