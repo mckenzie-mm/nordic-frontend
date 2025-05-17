@@ -13,40 +13,6 @@ export async function handleProduct(req: FormData) {
     });
 
     console.log("res ", response)
-
-   //  const categories = await getCategories();
-
-    // const product = fromFormData(request, categories);
-
-    // // Validate form fields using Zod
-    // const validatedFields = ValidateProduct.safeParse({
-    //     name: product.name,
-    //     categoryId: product.categoryId,
-    // });
-
-    // if (!validatedFields.success) {
-    //     return {
-    //         errors: validatedFields.error.flatten().fieldErrors,
-    //         message: 'Failed to Edit Product.',
-    //     };
-    // }
-    
-    // if (product.id) {
-    //    await productsService.update(product);
-    // } else {
-    //    // check for existing product
-    //     const res = await productsService.findName(product.name);
-    //     if (res.length) {
-    //         return {
-    //             errors: { name: ['existing name'] },        
-    //             message: 'Failed to Edit Product.',
-    //         };
-    //     }  
-    //     await productsService.create(product);
-    // } 
-
-   // revalidatePath('/admin');
-   // redirect('/admin');
 }
 
 export async function getFormData(slug: string) {
