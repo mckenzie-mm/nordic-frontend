@@ -6,7 +6,7 @@ import Link from "next/link";
 import InputNumber from "@/app/ui-client/input-number";
 import { IMAGE_PREFIX } from "@/app/aws-images/s3-configuration";
 import { store } from "@/app/services/cart-service";
-import { ICartItem } from "@/app/domain/cart";
+import { ICartItem } from "@/app/DTO/cart";
 
 export default function Cart() {
     const [cart, setCart] = useState<Array<ICartItem>>([]);

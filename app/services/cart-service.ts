@@ -1,7 +1,7 @@
 "use client"
 
 const { CART_KEY } = require("../templates");
-import { ICartItem } from "../domain/cart";
+import { ICartItem } from "../DTO/cart";
 import { ICallback, IStore } from "../domain/cart-interface";
 
 

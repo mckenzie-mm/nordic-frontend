@@ -8,21 +8,20 @@ import Link from "next/link";
 import { _Object } from "@aws-sdk/client-s3";
 import { ChangeEvent, ChangeEventHandler, useEffect, useState } from "react";
 
-import { IFormState } from "../../validation/validate";
 import { ICategoryDTO } from "../../DTO/categoryDTO";
-import { IFormDTO } from "../../DTO/formDTO";
 import { ObjectList } from "aws-sdk/clients/s3";
 import { getPhotos } from "./getPhotos";
+import { IProductDTO } from "@/app/DTO/productDTO";
 
-export default function Form({ formDTO, edit, categoriesDTO }: {
-    formDTO: IFormDTO, 
+export default function Form({ productDTO, edit, categoriesDTO }: {
+    productDTO: IProductDTO, 
     categoriesDTO: Array<ICategoryDTO>,
     edit: boolean
 }) {
 
-    const defThbs = (formDTO.smallImage === "") ? [] : formDTO.smallImage.split(",");
+    const defThbs = productDTO.smallImage;
     const [photos, setPhotos] = useState<ObjectList>([]);
-    const [categoryName, setCategoryName] = useState(formDTO.category); 
+    const [categoryName, setCategoryName] = useState(productDTO.category); 
     const [thumbs, setThumbs] = useState<Array<string>>(defThbs);
     const [selected, setSelected] = useState(0);
     const [len, setLen] = useState(defThbs.length);
@@ -42,8 +41,8 @@ export default function Form({ formDTO, edit, categoriesDTO }: {
 
     const handleSelect: ChangeEventHandler = (e: ChangeEvent<HTMLSelectElement>) => {
         setCategoryName(e.target.value);  
-        if (e.target.value === formDTO.category) {
-            setThumbs(JSON.parse(formDTO.smallImage).split(","));        
+        if (e.target.value === productDTO.category) {
+            setThumbs(productDTO.smallImage);        
         } else {
            setThumbs([])
         }
@@ -62,7 +61,7 @@ export default function Form({ formDTO, edit, categoriesDTO }: {
             <input 
                 type="text" 
                 name="id" 
-                defaultValue={formDTO?.id || -1} 
+                defaultValue={productDTO?.id || -1} 
                 hidden
             />
             <section className="section">
@@ -107,7 +106,7 @@ export default function Form({ formDTO, edit, categoriesDTO }: {
                                                         value={name} 
                                                         name={"SmallImage"} 
                                                         onChange={handleSelectImage}
-                                                        defaultChecked={formDTO.smallImage!.includes(name)}
+                                                        defaultChecked={productDTO.smallImage!.includes(name)}
                                                     />
                                                     <img 
                                                         src={photoUrl} 
@@ -132,7 +131,7 @@ export default function Form({ formDTO, edit, categoriesDTO }: {
                             type="text" 
                             id="edit-form-name" 
                             name="name" 
-                            defaultValue={formDTO.name} 
+                            defaultValue={productDTO.name} 
                             className="edit-form-name"
                         />
                       
@@ -142,7 +141,7 @@ export default function Form({ formDTO, edit, categoriesDTO }: {
                             id="description" 
                             name="description" 
                             className="edit-form-description"
-                            defaultValue={formDTO.description}
+                            defaultValue={productDTO.description}
                         />
                          <div style={{display: "flex", justifyContent: "space-between"}}>
                             <div>
@@ -151,7 +150,7 @@ export default function Form({ formDTO, edit, categoriesDTO }: {
                                     className="edit-form-price"
                                     type="number" 
                                     id="price" 
-                                    defaultValue={formDTO.price.toFixed(2)} 
+                                    defaultValue={(productDTO.price/100).toFixed(2)} 
                                     name="Price" 
                                     min="1" 
                                     step=".01"
@@ -164,7 +163,7 @@ export default function Form({ formDTO, edit, categoriesDTO }: {
                                     name="availability"
                                     type="number" 
                                     className="edit-form-availability" 
-                                    defaultValue={formDTO.availability}
+                                    defaultValue={productDTO.availability}
                                 /> 
                             </div>     
                         </div>
@@ -198,9 +197,6 @@ export default function Form({ formDTO, edit, categoriesDTO }: {
                     </div>
                 </div>
             </section>
-            <div style={{width: "1600px", overflowY: "auto", margin: "0 auto"}}>
-                {formDTO.smallImage}
-            </div> 
         </form>
 
     );

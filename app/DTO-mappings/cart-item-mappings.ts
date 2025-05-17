@@ -1,5 +1,5 @@
 
-import { ICartItem } from "../domain/cart";
+import { ICartItem } from "../DTO/cart";
 import { IProductDTO } from "../DTO/productDTO";
 
 export const toCartItem = (productDTO: IProductDTO, qty = 1) => {
