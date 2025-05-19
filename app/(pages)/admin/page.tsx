@@ -1,6 +1,6 @@
 
-import { deleteProduct } from "@/app/actions/delete-action";
-import { findAll, getCount } from "@/app/actions/get-actions"
+import { deleteProduct } from "@/app/actions/categories";
+import { findAll, getCount } from "@/app/actions/products"
 import { HREF } from "@/app/aws-images/s3-configuration";
 import { IProductDTO } from "@/app/DTO/productDTO";
 import { BinIcon, AddIcon, EditIcon } from "@/app/icons-svg";

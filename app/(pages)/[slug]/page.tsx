@@ -1,5 +1,5 @@
 
-import { findByCategory } from "@/app/actions/get-actions";
+import { findByCategory } from "@/app/actions/products";
 import ProductsListByCategory from "@/app/ui-client/products-list-by-category";
 
 export default async function CategoryPage({ params, }: {params: Promise<{ slug: string }>}) {

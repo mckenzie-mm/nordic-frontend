@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { findAll, findByCategory } from "../actions/get-actions";
+import { findAll, findByCategory } from "../actions/products";
 import Card from "../ui/card";
 import { IProductDTO } from "../DTO/productDTO";
 const { LOAD_MORE, ALL_PRODUCT_LOADED } = require("../templates");

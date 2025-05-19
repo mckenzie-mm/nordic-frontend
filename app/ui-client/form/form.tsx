@@ -1,6 +1,6 @@
 "use client"
 const { ASPECT_RATIO_IMAGE } = require( "@/app/templates");
-import { handleProduct } from "@/app/actions/form-actions";
+import { handleProduct } from "@/app/actions/admin";
 import { HREF } from "@/app/aws-images/s3-configuration";
 import Link from "next/link";
 

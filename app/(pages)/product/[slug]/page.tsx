@@ -3,7 +3,7 @@ import Card from "@/app/ui/card";
 import Link from "next/link";
 
 const { ICON_LIST} = require("@/app/templates");
-import { getProductPageData } from "@/app/actions/get-actions";
+import { getProductPageData } from "@/app/actions/products";
 import CartAddWidget from "@/app/ui-client/cart-add-widget";
 import ImageWidget from "@/app/ui-client/image-widget";
 

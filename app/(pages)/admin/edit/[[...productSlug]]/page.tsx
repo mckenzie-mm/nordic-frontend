@@ -1,5 +1,5 @@
 
-import { getFormData } from "@/app/actions/form-actions";
+import { getFormData } from "@/app/actions/admin";
 import Form from "@/app/ui-client/form/form";
 import { _Object } from "@aws-sdk/client-s3";
 

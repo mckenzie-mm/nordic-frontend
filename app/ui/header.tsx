@@ -4,7 +4,7 @@ import Dropdown from '../ui-client/dropdown';
 const { NAV, LOGO, PRODUCTS_NAV_NAME, REGISTER } = require('../templates');
 import SideCart from '../ui-client/cart-aside';
 import BtnCart from '../ui-client/btn-cart';
-import { getCategories } from '../actions/get-actions';
+import { getCategories } from '../actions/categories';
 
 export default async function Header() {
   const categories = await getCategories();
