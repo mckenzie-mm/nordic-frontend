@@ -2,7 +2,6 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { fetchWrapper } from "../ts/fetchWrapper";
 
 const createSlug = (name: string | undefined) => {
     if (!name) return "";
@@ -63,6 +62,7 @@ export async function deleteProduct(id: number) {
 }
 
 export async function getCount(ITEMS_PER_PAGE: number) {
-    const count = await fetchWrapper.get('admin/count');
-    return Math.ceil(Number(count) / ITEMS_PER_PAGE);
+    const response = await fetch('http://localhost:5037/admin/count');
+    const count = await response.json();
+    return  Math.ceil(Number(count) / ITEMS_PER_PAGE);
 }
