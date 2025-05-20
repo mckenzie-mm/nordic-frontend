@@ -14,11 +14,11 @@ export async function postProduct(req: FormData) {
 }
 
 export async function putProduct( id: number, req: FormData ) {
-    console.log("req ", req)
-    // const response = await fetch(`http://localhost:5037/admin/form/${id}`, {
-    //     method: "PUT",
-    //     body: req
-    // });
+    console.log("req ", id, req)
+    const response = await fetch(`http://localhost:5037/admin/form/${id}`, {
+        method: "PUT",
+        body: req
+    });
 }
 
 export async function getForm(productSlug: string) {

@@ -51,8 +51,8 @@ export default function Form({ productDTO, categoriesDTO }: {
         <form className="product" action={handleProduct}>          
             <input 
                 type="text" 
-                name="id" 
-                defaultValue={productDTO?.id || -1} 
+                name="slug" 
+                defaultValue={productDTO?.slug || ""} 
                 hidden
             />
             <section className="section">
@@ -166,7 +166,7 @@ export default function Form({ productDTO, categoriesDTO }: {
                                     <label className="thb-select">
                                         <input 
                                             type="checkbox"
-                                            name="selectedImages" 
+                                            name="smallImage" 
                                             value={thumb}
                                             checked={true} 
                                             onChange={() => {}} 

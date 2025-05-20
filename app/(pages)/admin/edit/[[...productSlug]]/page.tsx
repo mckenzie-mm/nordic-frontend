@@ -26,6 +26,7 @@ export default async function Page({ params, }: {params: Promise<{ productSlug: 
         productDTO = {
             id: data.id,
             name: data.name,
+            slug: data.slug,
             category: data.category,
             price: data.price, 
             description: data.description,
