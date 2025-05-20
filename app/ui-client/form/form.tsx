@@ -93,7 +93,7 @@ export default function Form({ productDTO, categoriesDTO }: {
                                                         type="checkbox" 
                                                         id={photoKey} 
                                                         value={photoKey} 
-                                                        name={"SmallImage"} 
+                                                        // name={"SmallImage"} 
                                                         onChange={handleSelectImage}
                                                         defaultChecked={productDTO.smallImage!.includes(photoKey)}
                                                     />
@@ -166,7 +166,7 @@ export default function Form({ productDTO, categoriesDTO }: {
                                     <label className="thb-select">
                                         <input 
                                             type="checkbox"
-                                            name="defaultImage" 
+                                            name="selectedImages" 
                                             value={thumb}
                                             checked={true} 
                                             onChange={() => {}} 
