@@ -3,12 +3,8 @@ import { fetchWrapper } from "../ts/fetchWrapper";
 
 export const findAll = async (currentPage: number, ITEMS_PER_PAGE: number) => {
     const response = await fetch(`http://localhost:5037/products/list/${currentPage}/${ITEMS_PER_PAGE}`);
-
-    console.log("response ", response);
-
     const data = await response.json();
-
-    console.log("data ", data)
+    return data;
 }
 
 

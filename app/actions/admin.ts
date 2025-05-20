@@ -4,24 +4,52 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { fetchWrapper } from "../ts/fetchWrapper";
 
-export async function handleProduct(req: FormData) {
+export async function postProduct(req: FormData) {
     const response = await fetch("http://localhost:5037/admin/form", {
         method: "POST",
         body: req
     });
 }
 
-export async function getFormData(slug: string) {
-    const response = await fetch(`http://localhost:5037/admin/form/${slug}`);
-    const { categories, productDTO} = await response.json();
+export async function putProduct( id: number, req: FormData ) {
+    const response = await fetch(`http://localhost:5037/admin/form/${id}`, {
+        method: "PUT",
+        body: req
+    });
+}
+
+export async function getForm(productSlug: string) {
+    const response = await fetch(`http://localhost:5037/admin/form/${productSlug}`);
+
+    const { 
+        id,
+        name,
+        price,
+        smallImage,
+        slug, 
+        description,
+        availability,
+        category,
+        categories 
+    } = await response.json();
+
     return {
-        productDTO: productDTO,
-        categoriesDTO: categories
+        id,
+        name,
+        price,
+        smallImage,
+        slug, 
+        description,
+        availability,
+        category,
+        categories 
     };
 }
 
 export async function deleteProduct(id: number) {
-  //  productsService.delete(id);
+    const response = await fetch(`http://localhost:5037/admin/form/${id}`, {
+        method: "DELETE"
+    });
     // revalidatePath('/admin');
     // redirect('/admin');
 }

@@ -1,6 +1,7 @@
 "use server"
 
-import { fetchWrapper } from "../ts/fetchWrapper";
-//import { productsService } from "../services/products-service";
-
-export const getCategories = async () => await fetchWrapper.get(`categories`);
+export async function getCategories() {
+    const response = await fetch("http://localhost:5037/categories");
+    const data = await response.json();
+    return data;
+}

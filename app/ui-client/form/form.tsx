@@ -1,6 +1,6 @@
 "use client"
 const { ASPECT_RATIO_IMAGE } = require( "@/app/templates");
-import { handleProduct } from "@/app/actions/admin";
+import { putProduct, postProduct } from "@/app/actions/admin";
 import { HREF } from "@/app/aws-images/s3-configuration";
 import Link from "next/link";
 
@@ -13,48 +13,32 @@ import { ObjectList } from "aws-sdk/clients/s3";
 import { getPhotos } from "./getPhotos";
 import { IProductDTO } from "@/app/DTO/productDTO";
 
-export default function Form({ productDTO, edit, categoriesDTO }: {
+export default function Form({ productDTO, categoriesDTO }: {
     productDTO: IProductDTO, 
-    categoriesDTO: Array<ICategoryDTO>,
-    edit: boolean
+    categoriesDTO: Array<ICategoryDTO>
 }) {
 
     const defThbs = productDTO.smallImage;
     const [photos, setPhotos] = useState<ObjectList>([]);
     const [categoryName, setCategoryName] = useState(productDTO.category); 
-    const [thumbs, setThumbs] = useState<Array<string>>(defThbs);
-    const [selected, setSelected] = useState(0);
-    const [len, setLen] = useState(defThbs.length);
-
-    const handleSelectThb = (index: number) => setSelected(index);
 
     useEffect(() => {
         (async function(){
-            const data = await getPhotos(categoryName);
+            const data = await getPhotos(categoryName!);
             setPhotos(data?.slice(1) || []);   
         })();
     }, [categoryName]);
 
-    useEffect(() => {}, [thumbs.length]);
 
-    const albumPhotosKey = encodeURIComponent(categoryName) + "/"; 
+    const albumPhotosKey = encodeURIComponent(categoryName!) + "/"; 
 
     const handleSelect: ChangeEventHandler = (e: ChangeEvent<HTMLSelectElement>) => {
         setCategoryName(e.target.value);  
-        if (e.target.value === productDTO.category) {
-            setThumbs(productDTO.smallImage);        
-        } else {
-           setThumbs([])
-        }
-      }
-   
-    const handleSelectImage = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const img = e.target.value;
-        const index = thumbs.indexOf(img);
-        (index > -1) ? thumbs.splice(index, 1) : thumbs.push(img);
-        setThumbs(thumbs);
-        setLen(thumbs.length); // required for react to trigger update
     }
+   
+    const handleSelectImage = (e: React.ChangeEvent<HTMLInputElement>) => {}
+
+    const handleProduct = productDTO.id ? putProduct.bind(null, productDTO.id) : postProduct;
     
     return (
         <form className="product" action={handleProduct}>          
@@ -66,7 +50,7 @@ export default function Form({ productDTO, edit, categoriesDTO }: {
             />
             <section className="section">
                 <div className="edit-product-header">
-                    <h2 className="edit-product-title">{edit ? "Edit" : "Create"} Product</h2>   
+                    <h2 className="edit-product-title">{productDTO.id ? "Edit" : "Create"} Product</h2>   
                     <div className="edit-btn-wrap">
                         <Link href="/admin" className="edit-btn-cancel">Cancel</Link>
                         <button className="edit-btn-save" type="submit">Save</button>
@@ -168,32 +152,6 @@ export default function Form({ productDTO, edit, categoriesDTO }: {
                             </div>     
                         </div>
                         <label htmlFor="price" className="edit-form-label">Select Default Image:</label>
-                        <ul className="form-thumbnail-list" role="list">
-                        {
-                            thumbs.map((thumb, index) => {
-                                // const src = IMAGE_PREFIX + encodeURIComponent(thumb); 
-                                const src = HREF + categoryName + "/" + encodeURIComponent(thumb); 
-                                return ( 
-                                <li key={index} className={`thumbnail ${(index === selected) ? "form-thumbnail-selected" : ""}`} >
-                                    <label className="thb-select">
-                                        <input 
-                                            type="radio" 
-                                            name="defaultImage" 
-                                            value={thumb}
-                                            checked={index === selected} 
-                                            onChange={() => handleSelectThb(index)} 
-                                            hidden
-                                        />
-                                        <img 
-                                            src={src} 
-                                            className="thumbnail-img"
-                                            alt="thumbnail image"
-                                        />
-                                    </label>
-                                </li>)
-                            })    
-                        } 
-                        </ul>
                     </div>
                 </div>
             </section>

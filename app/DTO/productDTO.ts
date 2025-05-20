@@ -1,5 +1,7 @@
 export type IProductDTO = {
   id?: number;
+  category?: string;
+  slug?: string;
   name: string;
   price: number; 
   description: string;
@@ -7,6 +9,5 @@ export type IProductDTO = {
   mediumImage: Array<string>;
   largeImage: Array<string>; 
   availability: number; 
-  slug: string;
-  category: string;
 }
+

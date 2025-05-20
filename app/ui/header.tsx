@@ -8,6 +8,7 @@ import { getCategories } from '../actions/categories';
 
 export default async function Header() {
   const categories = await getCategories();
+  console.log("cat 2", categories)
   return (
     <>
       <section className='placeholder'></section> {/* To adjust page to be below fixed header */}

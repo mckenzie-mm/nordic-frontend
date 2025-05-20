@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <>
       <Carousel />
-      <ProductsListByCategory inititalProducts={productsDTO} hasMore={true} />   
+      <ProductsListByCategory inititalProducts={productsDTO!} hasMore={true} />   
     </>
   );
 }

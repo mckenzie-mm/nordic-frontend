@@ -1,4 +1,4 @@
 export interface ICategoryDTO {
-  id?: number;
+  id: number;
   name: string;
 }
