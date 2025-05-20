@@ -11,6 +11,7 @@ export default async function Page({ params, }: {params: Promise<{ productSlug: 
     let productDTO: IProductDTO = {
         name: "",
         price: 1, 
+        category: "bracelets",
         description: "",
         smallImage: [],
         mediumImage: [],
@@ -25,12 +26,14 @@ export default async function Page({ params, }: {params: Promise<{ productSlug: 
         productDTO = {
             id: data.id,
             name: data.name,
+            category: data.category,
             price: data.price, 
             description: data.description,
             smallImage: data.smallImage,
             mediumImage: data.smallImage,
             largeImage: data.smallImage,
             availability: data.availability
+
         };
         categoriesDTO = data.categories;
     } else {

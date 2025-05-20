@@ -6,10 +6,9 @@ import Link from "next/link";
 
 
 import { _Object } from "@aws-sdk/client-s3";
-import { ChangeEvent, ChangeEventHandler, useEffect, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, Key, useEffect, useState } from "react";
 
 import { ICategoryDTO } from "../../DTO/categoryDTO";
-import { ObjectList } from "aws-sdk/clients/s3";
 import { getPhotos } from "./getPhotos";
 import { IProductDTO } from "@/app/DTO/productDTO";
 
@@ -17,26 +16,35 @@ export default function Form({ productDTO, categoriesDTO }: {
     productDTO: IProductDTO, 
     categoriesDTO: Array<ICategoryDTO>
 }) {
-
-    const defThbs = productDTO.smallImage;
-    const [photos, setPhotos] = useState<ObjectList>([]);
+    const [photos, setPhotos] = useState<Array<string>>([]);
+    const [selectedPhotos, setSelectedPhotos] = useState<Array<string>>(productDTO.smallImage);
     const [categoryName, setCategoryName] = useState(productDTO.category); 
 
     useEffect(() => {
         (async function(){
-            const data = await getPhotos(categoryName!);
-            setPhotos(data?.slice(1) || []);   
+            const photos = await getPhotos(categoryName!);
+            setPhotos(photos);   
         })();
     }, [categoryName]);
-
-
-    const albumPhotosKey = encodeURIComponent(categoryName!) + "/"; 
 
     const handleSelect: ChangeEventHandler = (e: ChangeEvent<HTMLSelectElement>) => {
         setCategoryName(e.target.value);  
     }
    
-    const handleSelectImage = (e: React.ChangeEvent<HTMLInputElement>) => {}
+    const handleSelectImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+        
+        // Update selected photos
+        const newSelectedPhotos: Array<string> = [];
+        if (e.target.checked) {
+            newSelectedPhotos.push(e.target.value);
+        }
+        selectedPhotos.forEach(photo => {
+            if (photo !== e.target.value) {
+                newSelectedPhotos.push(photo);
+            }
+        })
+        setSelectedPhotos(newSelectedPhotos);
+    }
 
     const handleProduct = productDTO.id ? putProduct.bind(null, productDTO.id) : postProduct;
     
@@ -76,10 +84,8 @@ export default function Form({ productDTO, categoriesDTO }: {
                         <div className="bucket-image-widget-container" >
                             <ul className="bucket-image-widget-list" role="list">
                             {
-                                photos.map((photo) => {   
-                                    const photoKey = photo.Key;                         
-                                    const photoUrl = HREF + encodeURIComponent(photoKey!);  
-                                    const name = photoKey!.replace(albumPhotosKey, "");                  
+                                photos.map((photoKey) => {   
+                                    const photoUrl = HREF + categoryName + "/" + encodeURIComponent(photoKey);  
                                     return (
                                         <li key={photoKey} className="bucket-image-widget-li">
                                             <div className="bucket-image-widget-img-wrap" >
@@ -87,10 +93,10 @@ export default function Form({ productDTO, categoriesDTO }: {
                                                     <input 
                                                         type="checkbox" 
                                                         id={photoKey} 
-                                                        value={name} 
+                                                        value={photoKey} 
                                                         name={"SmallImage"} 
                                                         onChange={handleSelectImage}
-                                                        defaultChecked={productDTO.smallImage!.includes(name)}
+                                                        defaultChecked={productDTO.smallImage!.includes(photoKey)}
                                                     />
                                                     <img 
                                                         src={photoUrl} 
@@ -152,6 +158,31 @@ export default function Form({ productDTO, categoriesDTO }: {
                             </div>     
                         </div>
                         <label htmlFor="price" className="edit-form-label">Select Default Image:</label>
+                         <ul className="form-thumbnail-list" role="list">
+                        {
+                            selectedPhotos.map((thumb, index) => {
+                                const src = HREF + categoryName + "/" + encodeURIComponent(thumb); 
+                                return ( 
+                                 <li key={index} className="thumbnail" >
+                                    <label className="thb-select">
+                                        <input 
+                                            type="checkbox"
+                                            name="defaultImage" 
+                                            value={thumb}
+                                            checked={true} 
+                                            onChange={() => {}} 
+                                            hidden
+                                        />
+                                        <img 
+                                            src={src} 
+                                            className="thumbnail-img"
+                                            alt="thumbnail image"
+                                        />
+                                    </label>
+                                </li>)
+                            })    
+                        } 
+                        </ul>
                     </div>
                 </div>
             </section>

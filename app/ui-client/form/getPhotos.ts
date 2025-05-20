@@ -12,11 +12,18 @@ let client = new S3Client({
     })
 });
 
-export async function getPhotos(albumName: string) {
+export async function getPhotos(categoryName: string) {
     const command = new ListObjectsV2Command({
         Bucket: AWS_BUCKET_NAME,
-        Prefix: albumName
+        Prefix: categoryName
     });
     const response = await client.send(command);
-    return response.Contents?.slice(1);
+    const data = response.Contents?.slice(1) || [];
+    const photos: Array<string> = [];
+    const albumPhotosKey = encodeURIComponent(categoryName!) + "/"; 
+    data.forEach(({ Key }) => {
+        const name = Key?.replace(albumPhotosKey, ""); 
+        photos.push(name!)
+    })
+    return photos;
 }
