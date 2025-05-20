@@ -32,7 +32,6 @@ export default function Form({ productDTO, categoriesDTO }: {
     }
    
     const handleSelectImage = (e: React.ChangeEvent<HTMLInputElement>) => {
-        
         // Update selected photos
         const newSelectedPhotos: Array<string> = [];
         if (e.target.checked) {
