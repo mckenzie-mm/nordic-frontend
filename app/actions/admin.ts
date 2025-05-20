@@ -4,17 +4,23 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { fetchWrapper } from "../ts/fetchWrapper";
 
-export async function postProduct(req: FormData) {
+const createSlug = (name: string | undefined) => {
+    if (!name) return "";
+    const slug = name.replaceAll(" ", "-")
+    return slug.toLowerCase();
+  }
 
-    console.log("req ", req)
-    // const response = await fetch("http://localhost:5037/admin/form", {
-    //     method: "POST",
-    //     body: req
-    // });
+export async function postProduct(req: FormData) {
+    const name = req.get("name")?.toString();
+    const slug = createSlug(name);
+    req.set("slug", slug);
+    const response = await fetch("http://localhost:5037/admin/form", {
+        method: "POST",
+        body: req
+    });
 }
 
 export async function putProduct( id: number, req: FormData ) {
-    console.log("req ", id, req)
     const response = await fetch(`http://localhost:5037/admin/form/${id}`, {
         method: "PUT",
         body: req
@@ -23,7 +29,6 @@ export async function putProduct( id: number, req: FormData ) {
 
 export async function getForm(productSlug: string) {
     const response = await fetch(`http://localhost:5037/admin/form/${productSlug}`);
-
     const { 
         id,
         name,

@@ -6,7 +6,7 @@ import Link from "next/link";
 
 
 import { _Object } from "@aws-sdk/client-s3";
-import { ChangeEvent, ChangeEventHandler, Key, useEffect, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, useEffect, useState } from "react";
 
 import { ICategoryDTO } from "../../DTO/categoryDTO";
 import { getPhotos } from "./getPhotos";
