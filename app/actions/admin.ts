@@ -55,11 +55,11 @@ export async function getForm(productSlug: string) {
 }
 
 export async function deleteProduct(id: number) {
-    const response = await fetch(`http://localhost:5037/admin/form/${id}`, {
+    const response = await fetch(`http://localhost:5037/admin/${id}`, {
         method: "DELETE"
     });
-    // revalidatePath('/admin');
-    // redirect('/admin');
+    revalidatePath('/admin');
+    redirect('/admin');
 }
 
 export async function getCount(ITEMS_PER_PAGE: number) {
