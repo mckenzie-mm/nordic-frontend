@@ -32,9 +32,9 @@ export default function Cart() {
                     <h2 className="card-grid-item-title">Warenkorb</h2>
                     <ul className="cart-items" role="list">
                     {
-                        cart.map(({id, name, price, smallImage, slug, qty}) => 
+                        cart.map(({id, name, price, images, slug, qty}) => 
                         {
-                            const src = IMAGE_PREFIX + encodeURIComponent(smallImage!.split(',')[0]); 
+                            const src = IMAGE_PREFIX + encodeURIComponent(images!.split(',')[0]); 
                             return  <li key={id} className="cart-item">
                                         <div className="cart-row">
                                             <div className="cart-col-1">

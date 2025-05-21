@@ -40,8 +40,8 @@ export default function CartAside() {
                 :
                     <ul className="cart-aside-items" role="list">
                     {
-                        cart.map(({id, name, price, smallImage, slug, qty}) => {                      
-                            const src = IMAGE_PREFIX + encodeURIComponent(smallImage as string); 
+                        cart.map(({id, name, price, images, slug, qty}) => {                      
+                            const src = IMAGE_PREFIX + encodeURIComponent(images as string); 
                             return ( 
                                 <li key={id} className="cart-aside-item">
                                     <div className="row">

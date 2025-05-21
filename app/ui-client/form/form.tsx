@@ -17,7 +17,7 @@ export default function Form({ productDTO, categoriesDTO }: {
     categoriesDTO: Array<ICategoryDTO>
 }) {
     const [photos, setPhotos] = useState<Array<string>>([]);
-    const [selectedPhotos, setSelectedPhotos] = useState<Array<string>>(productDTO.smallImage);
+    const [selectedPhotos, setSelectedPhotos] = useState<Array<string>>(productDTO.images);
     const [categoryName, setCategoryName] = useState(productDTO.category); 
 
     useEffect(() => {
@@ -93,9 +93,9 @@ export default function Form({ productDTO, categoriesDTO }: {
                                                         type="checkbox" 
                                                         id={photoKey} 
                                                         value={photoKey} 
-                                                        // name={"SmallImage"} 
+                                                        // name={"images"} 
                                                         onChange={handleSelectImage}
-                                                        defaultChecked={productDTO.smallImage!.includes(photoKey)}
+                                                        defaultChecked={productDTO.images!.includes(photoKey)}
                                                     />
                                                     <img 
                                                         src={photoUrl} 
@@ -166,7 +166,7 @@ export default function Form({ productDTO, categoriesDTO }: {
                                     <label className="thb-select">
                                         <input 
                                             type="checkbox"
-                                            name="smallImage" 
+                                            name="images" 
                                             value={thumb}
                                             checked={true} 
                                             onChange={() => {}} 

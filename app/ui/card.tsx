@@ -8,9 +8,8 @@ import { IProductDTO } from "../DTO/productDTO";
 export default function Card({ productDTO }: {
     productDTO: IProductDTO;
 }) {
-    const { name, mediumImage, slug, category } = productDTO;
-    // const src = IMAGE_PREFIX + encodeURIComponent(mediumImage[0]); 
-    const src = HREF + category + "/" + encodeURIComponent(mediumImage[0]); 
+    const { name, images, slug, category } = productDTO;
+    const src = HREF + category + "/" + encodeURIComponent(images[0]); 
     return (
         <div className="card">                   
             <Link href={`/product/${slug}`} className="card-img-wrap">

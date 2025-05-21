@@ -5,9 +5,7 @@ export type IProductDTO = {
   name: string;
   price: number; 
   description: string;
-  smallImage: Array<string>; 
-  mediumImage: Array<string>;
-  largeImage: Array<string>; 
+  images: Array<string>; 
   availability: number; 
 }
 

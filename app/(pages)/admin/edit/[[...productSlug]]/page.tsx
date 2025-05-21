@@ -13,9 +13,7 @@ export default async function Page({ params, }: {params: Promise<{ productSlug: 
         price: 1, 
         category: "bracelets",
         description: "",
-        smallImage: [],
-        mediumImage: [],
-        largeImage: [],
+        images: [],
         availability: 1
     }
 
@@ -30,9 +28,7 @@ export default async function Page({ params, }: {params: Promise<{ productSlug: 
             category: data.category,
             price: data.price, 
             description: data.description,
-            smallImage: data.smallImage,
-            mediumImage: data.smallImage,
-            largeImage: data.smallImage,
+            images: data.images,
             availability: data.availability
 
         };
