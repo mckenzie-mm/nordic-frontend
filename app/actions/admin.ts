@@ -4,6 +4,7 @@ const WEB_API_URL = process.env.WEB_API_URL;
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { IFormDTO } from "../DTO/formDTO";
 
 export async function postProduct(req: FormData) {
     const response = await fetch(`${WEB_API_URL}/admin/form`, {
@@ -21,29 +22,8 @@ export async function putProduct( id: number, req: FormData ) {
 
 export async function getForm(productSlug: string) {
     const response = await fetch(`${WEB_API_URL}/admin/form/${productSlug}`);
-    const { 
-        id,
-        name,
-        price,
-        images,
-        slug, 
-        description,
-        availability,
-        category,
-        categories 
-    } = await response.json();
-
-    return {
-        id,
-        name,
-        price,
-        images,
-        slug, 
-        description,
-        availability,
-        category,
-        categories 
-    };
+    const formDTO: IFormDTO = await response.json();
+    return formDTO;
 }
 
 export async function deleteProduct(id: number) {

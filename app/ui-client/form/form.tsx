@@ -8,17 +8,13 @@ import Link from "next/link";
 import { _Object } from "@aws-sdk/client-s3";
 import { ChangeEvent, ChangeEventHandler, useEffect, useState } from "react";
 
-import { ICategoryDTO } from "../../DTO/categoryDTO";
 import { getPhotos } from "./getPhotos";
-import { IProductDTO } from "@/app/DTO/productDTO";
+import { IFormDTO } from "@/app/DTO/formDTO";
 
-export default function Form({ productDTO, categoriesDTO }: {
-    productDTO: IProductDTO, 
-    categoriesDTO: Array<ICategoryDTO>
-}) {
+export default function Form({ formDTO }: { formDTO: IFormDTO }) {
     const [photos, setPhotos] = useState<Array<string>>([]);
-    const [selectedPhotos, setSelectedPhotos] = useState<Array<string>>(productDTO.images);
-    const [categoryName, setCategoryName] = useState(productDTO.category); 
+    const [selectedPhotos, setSelectedPhotos] = useState<Array<string>>(formDTO.images);
+    const [categoryName, setCategoryName] = useState(formDTO.category); 
 
     useEffect(() => {
         (async function(){
@@ -45,19 +41,19 @@ export default function Form({ productDTO, categoriesDTO }: {
         setSelectedPhotos(newSelectedPhotos);
     }
 
-    const handleProduct = productDTO.id ? putProduct.bind(null, productDTO.id) : postProduct;
+    const handleProduct = formDTO.id ? putProduct.bind(null, formDTO.id) : postProduct;
     
     return (
         <form className="product" action={handleProduct}>          
             <input 
                 type="text" 
                 name="slug" 
-                defaultValue={productDTO?.slug || ""} 
+                defaultValue={formDTO?.slug || ""} 
                 hidden
             />
             <section className="section">
                 <div className="edit-product-header">
-                    <h2 className="edit-product-title">{productDTO.id ? "Edit" : "Create"} Product</h2>   
+                    <h2 className="edit-product-title">{formDTO.id ? "Edit" : "Create"} Product</h2>   
                     <div className="edit-btn-wrap">
                         <Link href="/admin" className="edit-btn-cancel">Cancel</Link>
                         <button className="edit-btn-save" type="submit">Save</button>
@@ -72,7 +68,7 @@ export default function Form({ productDTO, categoriesDTO }: {
                             <h2 className="edit-product-image-header-title">Images:</h2>
                             <select  name="category" value={categoryName} onChange={handleSelect}  style={{marginBottom: "10px", padding: "5px"}}>
                             {
-                                categoriesDTO.map(({ name }) => {
+                                formDTO.categories.map(({ name }) => {
                                     return  <option key={name} value={name}>
                                             {name}
                                             </option>
@@ -95,7 +91,7 @@ export default function Form({ productDTO, categoriesDTO }: {
                                                         value={photoKey} 
                                                         // name={"images"} 
                                                         onChange={handleSelectImage}
-                                                        defaultChecked={productDTO.images!.includes(photoKey)}
+                                                        defaultChecked={formDTO.images!.includes(photoKey)}
                                                     />
                                                     <img 
                                                         src={photoUrl} 
@@ -120,7 +116,7 @@ export default function Form({ productDTO, categoriesDTO }: {
                             type="text" 
                             id="edit-form-name" 
                             name="name" 
-                            defaultValue={productDTO.name} 
+                            defaultValue={formDTO.name} 
                             className="edit-form-name"
                         />
                       
@@ -130,7 +126,7 @@ export default function Form({ productDTO, categoriesDTO }: {
                             id="description" 
                             name="description" 
                             className="edit-form-description"
-                            defaultValue={productDTO.description}
+                            defaultValue={formDTO.description}
                         />
                          <div style={{display: "flex", justifyContent: "space-between"}}>
                             <div>
@@ -139,7 +135,7 @@ export default function Form({ productDTO, categoriesDTO }: {
                                     className="edit-form-price"
                                     type="number" 
                                     id="price" 
-                                    defaultValue={(productDTO.price/100).toFixed(2)} 
+                                    defaultValue={(formDTO.price).toFixed(2)} 
                                     name="Price" 
                                     min="1" 
                                     step=".01"
@@ -152,7 +148,7 @@ export default function Form({ productDTO, categoriesDTO }: {
                                     name="availability"
                                     type="number" 
                                     className="edit-form-availability" 
-                                    defaultValue={productDTO.availability}
+                                    defaultValue={formDTO.availability}
                                 /> 
                             </div>     
                         </div>

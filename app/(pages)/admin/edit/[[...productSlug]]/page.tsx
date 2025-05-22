@@ -1,43 +1,33 @@
 
 import { getForm } from "@/app/actions/admin";
 import { getCategories } from "@/app/actions/categories";
-import { IProductDTO } from "@/app/DTO/productDTO";
+import { IFormDTO } from "@/app/DTO/formDTO";
 import Form from "@/app/ui-client/form/form";
 import { _Object } from "@aws-sdk/client-s3";
 
 export default async function Page({ params, }: {params: Promise<{ productSlug: string }>}) {
     const { productSlug } = await params;
 
-    let productDTO: IProductDTO = {
+    let formDTO: IFormDTO = {
         name: "",
-        price: 1, 
+        price: 100, 
         category: "bracelets",
         description: "",
         images: [],
-        availability: 1
+        availability: 1,
+        categories: []
     }
 
     let categoriesDTO;
 
     if (productSlug) {
-        const data = await getForm(productSlug);
-        productDTO = {
-            id: data.id,
-            name: data.name,
-            slug: data.slug,
-            category: data.category,
-            price: data.price, 
-            description: data.description,
-            images: data.images,
-            availability: data.availability
-
-        };
-        categoriesDTO = data.categories;
+        formDTO = await getForm(productSlug);
     } else {
         categoriesDTO = await getCategories();
+        formDTO.categories = categoriesDTO;
     }
 
-    return <Form productDTO={productDTO} categoriesDTO={categoriesDTO} />
+    return <Form formDTO={formDTO} />
 
   }
 
