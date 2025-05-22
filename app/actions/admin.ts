@@ -6,9 +6,6 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export async function postProduct(req: FormData) {
-    const name = req.get("name")?.toString();
-    const slug = name ? name.replaceAll(" ", "-") : "";
-    req.set("slug", slug.toLowerCase());
     const response = await fetch(`${WEB_API_URL}/admin/form`, {
         method: "POST",
         body: req
