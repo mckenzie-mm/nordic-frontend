@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import InputNumber from "./input-number";
 import { closeCart } from "../ts/ui";
-import { IMAGE_PREFIX } from "../aws-images/s3-configuration";
+import { HREF, IMAGE_PREFIX } from "../aws-images/s3-configuration";
 import { store } from "../services/cart-service";
 import { ICartItem } from "../DTO/cart";
 
@@ -40,8 +40,8 @@ export default function CartAside() {
                 :
                     <ul className="cart-aside-items" role="list">
                     {
-                        cart.map(({id, name, price, images, slug, qty}) => {                      
-                            const src = IMAGE_PREFIX + encodeURIComponent(images as string); 
+                        cart.map(({id, name, category, price, image, slug, qty}) => {                      
+                            const src = HREF + category + "/" + encodeURIComponent(image); 
                             return ( 
                                 <li key={id} className="cart-aside-item">
                                     <div className="row">

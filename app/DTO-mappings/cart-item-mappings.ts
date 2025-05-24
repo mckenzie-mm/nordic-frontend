@@ -9,9 +9,10 @@ export const toCartItem = (productDTO: IProductDTO, qty = 1) => {
     const cartItem : ICartItem = {
         id: productDTO.id,
         name: productDTO.name,
-        images: productDTO.images[0],
+        category: productDTO.category!,
+        image: productDTO.images[0]!,
         price: productDTO.price,
-        slug: productDTO.slug,
+        slug: productDTO.slug!,
         qty: qty
     }
     return cartItem;

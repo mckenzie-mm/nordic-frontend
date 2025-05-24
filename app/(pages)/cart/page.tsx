@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 import InputNumber from "@/app/ui-client/input-number";
-import { IMAGE_PREFIX } from "@/app/aws-images/s3-configuration";
+import { HREF, IMAGE_PREFIX } from "@/app/aws-images/s3-configuration";
 import { store } from "@/app/services/cart-service";
 import { ICartItem } from "@/app/DTO/cart";
 
@@ -32,9 +32,9 @@ export default function Cart() {
                     <h2 className="card-grid-item-title">Warenkorb</h2>
                     <ul className="cart-items" role="list">
                     {
-                        cart.map(({id, name, price, images, slug, qty}) => 
+                        cart.map(({id, name, category, price, image, slug, qty}) => 
                         {
-                            const src = IMAGE_PREFIX + encodeURIComponent(images!.split(',')[0]); 
+                            const src = HREF + category + "/" + encodeURIComponent(image); 
                             return  <li key={id} className="cart-item">
                                         <div className="cart-row">
                                             <div className="cart-col-1">
