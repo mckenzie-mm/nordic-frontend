@@ -15,14 +15,11 @@ export default async function CategoryPage({ params, }: {params: Promise<{ slug:
                     <h1 className="category-name">{slug}</h1>
                 </section>
             </div>
-            {
-
-                <ProductsListByCategory 
-                    inititalProducts={productsDTO} 
-                    hasMore={true} 
-                    category={slug}
-                />                
-            }
+            <ProductsListByCategory 
+                inititalProducts={productsDTO} 
+                hasMore={true} 
+                category={slug}
+            />                
         </>
     );
 }
