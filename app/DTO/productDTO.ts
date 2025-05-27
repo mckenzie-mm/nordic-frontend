@@ -4,7 +4,7 @@ export type IProductDTO = {
   slug?: string;
   name: string;
   price: number; 
-  description: string;
+  description?: string;
   images: Array<string>; 
   availability: number; 
 }

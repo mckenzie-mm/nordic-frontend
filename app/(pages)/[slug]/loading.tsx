@@ -1,6 +1,7 @@
 "use client";
 
 import Card from "@/app/ui/card";
+import CardSkeleton from "./card-skeleton";
 
 export type IProductDTO = {
   id?: number;
@@ -13,54 +14,30 @@ export type IProductDTO = {
   availability: number; 
 }
 
-const productsDTO = [
+const arr = [
     {
-      category: "bracelets",
-      slug: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
       name: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
       price: 100, 
-      images: ["test"],
-      availability: 10
     },
      {
-      category: "bracelets",
-      slug: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
       name: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
       price: 10, 
-      images: ["test"],
-      availability: 10
     },
     {
-      category: "bracelets",
-      slug: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
       name: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
       price: 10, 
-      images: ["test"],
-      availability: 10
     },
    {
-      category: "bracelets",
-      slug: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
       name: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
       price: 10, 
-      images: ["test"],
-      availability: 10
     },
    {
-      category: "bracelets",
-      slug: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
       name: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
       price: 10, 
-      images: ["test"],
-      availability: 10
     },
  {
-      category: "bracelets",
-      slug: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
       name: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
       price: 10, 
-      images: ["test"],
-      availability: 10
     },
 ]
 
@@ -77,8 +54,8 @@ export default function Skeleton() {
       </div>
         <section className="section">
             <div className="grid-products">
-            {productsDTO.map((productDTO, index) => 
-                <Card productDTO={productDTO} key={index} />)
+            {arr.map(({name, price}, index) => 
+                <CardSkeleton name={name} price={price} key={index} />)
             }
             </div>
         </section>
