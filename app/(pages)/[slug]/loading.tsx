@@ -15,59 +15,53 @@ export type IProductDTO = {
 
 const productsDTO = [
     {
-    category: "bracelets",
-    slug: "my-name",
-    name: "my name",
-    price: 10, 
-    description: "",
-    images: ["test"],
-    availability: 10
+      category: "bracelets",
+      slug: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
+      name: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
+      price: 100, 
+      images: ["test"],
+      availability: 10
     },
      {
-    category: "bracelets",
-    slug: "my-name",
-    name: "my name",
-    price: 10, 
-    description: "",
-    images: ["test"],
-    availability: 10
+      category: "bracelets",
+      slug: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
+      name: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
+      price: 10, 
+      images: ["test"],
+      availability: 10
     },
-     {
-    category: "bracelets",
-    slug: "my-name",
-    name: "my name",
-    price: 10, 
-    description: "",
-    images: ["test"],
-    availability: 10
+    {
+      category: "bracelets",
+      slug: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
+      name: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
+      price: 10, 
+      images: ["test"],
+      availability: 10
     },
-     {
-    category: "bracelets",
-    slug: "my-name",
-    name: "my name",
-    price: 10, 
-    description: "",
-    images: ["test"],
-    availability: 10
+   {
+      category: "bracelets",
+      slug: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
+      name: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
+      price: 10, 
+      images: ["test"],
+      availability: 10
     },
-     {
-    category: "bracelets",
-    slug: "my-name",
-    name: "my name",
-    price: 10, 
-    description: "",
-    images: ["test"],
-    availability: 10
+   {
+      category: "bracelets",
+      slug: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
+      name: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
+      price: 10, 
+      images: ["test"],
+      availability: 10
     },
-     {
-    category: "bracelets",
-    slug: "my-name",
-    name: "my name",
-    price: 10, 
-    description: "",
-    images: ["test"],
-    availability: 10
-    }
+ {
+      category: "bracelets",
+      slug: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
+      name: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
+      price: 10, 
+      images: ["test"],
+      availability: 10
+    },
 ]
 
 
