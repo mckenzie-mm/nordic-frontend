@@ -1,8 +1,6 @@
 
 import { findByCategory } from "@/app/actions/products";
 import ProductsListByCategory from "@/app/ui-client/products-list-by-category";
-import { Suspense } from "react";
-import Skeleton from "./skeleton";
 
 export default async function CategoryPage({ params, }: {params: Promise<{ slug: string }>}) {
     const { slug } = await params;
@@ -18,13 +16,12 @@ export default async function CategoryPage({ params, }: {params: Promise<{ slug:
                 </section>
             </div>
             {
-                <Suspense fallback={<Skeleton />}>
-                    <ProductsListByCategory 
-                                        inititalProducts={productsDTO} 
-                                        hasMore={true} 
-                                        category={slug}
-                    />                
-                </Suspense>
+
+                <ProductsListByCategory 
+                    inititalProducts={productsDTO} 
+                    hasMore={true} 
+                    category={slug}
+                />                
             }
         </>
     );
