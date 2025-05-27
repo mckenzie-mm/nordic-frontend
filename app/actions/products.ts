@@ -5,6 +5,9 @@ const WEB_API_URL = process.env.WEB_API_URL;
 export const findAll = async (currentPage: number, ITEMS_PER_PAGE: number) => {
     const response = await fetch(`${WEB_API_URL}/products/list/${currentPage}/${ITEMS_PER_PAGE}`);
     const data = await response.json();
+
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    
     return data;
 }
 
@@ -12,6 +15,9 @@ export const findAll = async (currentPage: number, ITEMS_PER_PAGE: number) => {
 export const findByCategory = async (category: string, currentPage: number, ITEMS_PER_PAGE: number) => {
     const response = await fetch(`${WEB_API_URL}/products/list/${category}/${currentPage}/${ITEMS_PER_PAGE}`);
     const data = await response.json();
+
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
     return data;
 }
 

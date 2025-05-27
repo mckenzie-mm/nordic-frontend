@@ -11,10 +11,14 @@ export default function Card({ productDTO }: {
     const { name, images, slug, category } = productDTO;
     const src = HREF + category + "/" + encodeURIComponent(images[0]); 
     return (
-        <div className="card">                   
-            <Link href={`/product/${slug}`} className="card-img-wrap">
-                <img className="card-img" src={src} alt="card image" />
-            </Link>            
+        <div className="card">    
+             <div className="card-img-wrap" >
+                <Link href={`/product/${slug}`}>
+                    <img alt="placeholder" src={"./bakgnd.png"} className="bakgnd" />
+                    <img  alt={name} className="products-img" src={src} />
+                </Link>
+            </div>        
+                    
             <div className="card-caption">
                 <ul className="card-detail-list">
                     <li key="card-link"><Link href="" className="card-link">{name}</Link></li>
