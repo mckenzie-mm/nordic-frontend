@@ -1,11 +1,9 @@
+
 import { BtnLike } from "@/app/ui/btns";
 
 import Link from "next/link";
 
-export default function CardSkeleton({ name, price }: {
-    name: string;
-    price: Number
-}) {
+export default function CardSkeleton() {
     return (
         <div className="card">    
              <div className="card-img-wrap" >

@@ -1,50 +1,10 @@
 "use client";
 
-import Card from "@/app/ui/card";
-import CardSkeleton from "./card-skeleton";
+import CardSkeleton from "../../ui/card-skeleton";
 
-export type IProductDTO = {
-  id?: number;
-  category?: string;
-  slug?: string;
-  name: string;
-  price: number; 
-  description: string;
-  images: Array<string>; 
-  availability: number; 
-}
-
-const arr = [
-    {
-      name: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
-      price: 100, 
-    },
-     {
-      name: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
-      price: 10, 
-    },
-    {
-      name: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
-      price: 10, 
-    },
-   {
-      name: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
-      price: 10, 
-    },
-   {
-      name: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
-      price: 10, 
-    },
- {
-      name: "Vintage Style Alloy Brooch With Artificial Crystal Accents",
-      price: 10, 
-    },
-]
-
-
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 export default function Skeleton() {
-
   return (
     <>
       <div className="category-header">
@@ -54,9 +14,7 @@ export default function Skeleton() {
       </div>
         <section className="section">
             <div className="grid-products">
-            {arr.map(({name, price}, index) => 
-                <CardSkeleton name={name} price={price} key={index} />)
-            }
+            {arr.map((index) => <CardSkeleton key={index} />)}
             </div>
         </section>
     </>
