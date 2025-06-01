@@ -9,12 +9,14 @@ export default function Card({ productDTO }: {
     productDTO: IProductDTO;
 }) {
     const { name, images, slug, category } = productDTO;
+    const thb = HREF + "thumbnails/" + category + "/" + encodeURIComponent(images[0]); 
     const src = HREF + category + "/" + encodeURIComponent(images[0]); 
     return (
         <div className="card">    
              <div className="card-img-wrap" >
                 <Link href={`/product/${slug}`}>
-                    <img alt="placeholder" src={"bakgnd.png"} className="bakgnd" />
+                    {/* <img alt="placeholder" src={"bakgnd.png"} className="bakgnd" /> */}
+                    <img alt="fade-in" src={thb} className="bakgnd" />
                     <img  alt={name} className="products-img" src={src} />
                 </Link>
             </div>        
