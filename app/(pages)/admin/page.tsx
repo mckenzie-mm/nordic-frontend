@@ -4,6 +4,7 @@ import { findAll } from "@/app/actions/products"
 import { HREF } from "@/app/aws-images/s3-configuration";
 import { IProductDTO } from "@/app/DTO/productDTO";
 import { BinIcon, AddIcon, EditIcon } from "@/app/icons-svg";
+import BtnReset from "@/app/ui-client/btn-reset";
 const { ASPECT_RATIO_IMAGE } = require( "@/app/templates");
 
 import Pagination from "@/app/ui-client/pagination";
@@ -25,6 +26,7 @@ export default async function Page(props: { searchParams?: Promise<{ page?: stri
                 <h2 className="admin-header-title">Products List</h2>
                 <div className="admin-header-nav">
                     <Pagination count={count} />
+                    <BtnReset />
                     <Link
                         href={`/admin/edit/`}
                         className="admin-create-btn-wrap"

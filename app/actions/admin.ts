@@ -11,6 +11,8 @@ export async function postProduct(req: FormData) {
         method: "POST",
         body: req
     });
+    revalidatePath('/admin');
+    redirect('/admin');
 }
 
 export async function putProduct( id: number, req: FormData ) {
@@ -18,6 +20,8 @@ export async function putProduct( id: number, req: FormData ) {
         method: "PUT",
         body: req
     });
+    revalidatePath('/admin');
+    redirect('/admin');
 }
 
 export async function getForm(productSlug: string) {
@@ -39,3 +43,10 @@ export async function getCount(ITEMS_PER_PAGE: number) {
     const count = await response.json();
     return  Math.ceil(Number(count) / ITEMS_PER_PAGE);
 }
+
+export async function reset() {
+    const response = await fetch(`${WEB_API_URL}/seed`);
+    revalidatePath('/admin');
+    redirect('/admin');
+}
+
