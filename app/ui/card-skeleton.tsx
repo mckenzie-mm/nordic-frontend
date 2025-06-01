@@ -8,7 +8,7 @@ export default function CardSkeleton() {
         <div className="card">    
              <div className="card-img-wrap" >
                 <Link href={"#"}>
-                    <img alt="placeholder" src={"./bakgnd.png"} className="bakgnd" />
+                    <img alt="placeholder" src={"bakgnd.png"} className="bakgnd" />
                 </Link>
             </div>        
                     

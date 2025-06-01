@@ -51,7 +51,7 @@ export default async function Page(props: { searchParams?: Promise<{ page?: stri
                 </li>
             {
                 productsDTO.map(({ name, id, price, availability, slug, images, category }) => {
-                    const src = HREF + category + "/" + encodeURIComponent(images[0]); 
+                    const src = HREF + "thumbnails/" + category + "/" + encodeURIComponent(images[0]); 
                     let deleteProductWithId;
                     if (id) {
                         deleteProductWithId = deleteProduct.bind(null, id);

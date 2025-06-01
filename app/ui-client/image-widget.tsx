@@ -16,7 +16,7 @@ export default function ImageWidget({ images, thumbs, category }: {
         <ul className="thumbnail-list" role="list" >
         {
             thumbs.map((thumb, index) => {
-                const src = HREF + category + "/" + encodeURIComponent(thumb); 
+                const src = HREF + "thumbnails/" + category + "/" + encodeURIComponent(thumb); 
                 return ( 
                 <li key={index} className={`thumbnail ${(index === selected) ? "thumbnail-selected" : ""}`} >
                     <img 
@@ -30,19 +30,30 @@ export default function ImageWidget({ images, thumbs, category }: {
         } 
         </ul>
         <ul className="images-list" role="list">
-        {
-            images.map((image, index) => {
-                const src = HREF + category! + "/" + encodeURIComponent(image); 
-                return (
-                <li key={index} className="product-image-wrap">
-                    <img 
-                        className = {`product-image ${(index === selected) ? "selected" : ""}`} 
-                        src={src} 
-                        alt="large image"
-                    />
-                </li>)
-            })           
-        }
+            {
+                images.map((image, index) => {
+                    const src = HREF + category! + "/" + encodeURIComponent(image); 
+                    const thb = HREF + "thumbnails/" + category! + "/" + encodeURIComponent(image); 
+                    return  <li 
+                                key={index}
+                                className = {(index === selected) ? "selected" : "not-selected"}
+                            >
+                                <div className = "product-img-rel">
+                                    <img
+                                        className="product-img-abs"
+                                        alt={image}
+                                        src ={thb}
+                                    />
+                                    <img
+                                        className="product-img-abs"
+                                        alt={image}
+                                        src ={src}
+                                    />
+                                </div>                       
+                            </li>
+                })
+            }
+            
         </ul>
     </div>
     );

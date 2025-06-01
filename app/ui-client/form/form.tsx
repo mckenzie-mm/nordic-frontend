@@ -80,7 +80,7 @@ export default function Form({ formDTO }: { formDTO: IFormDTO }) {
                             <ul className="bucket-image-widget-list" role="list">
                             {
                                 photos.map((photoKey) => {   
-                                    const photoUrl = HREF + categoryName + "/" + encodeURIComponent(photoKey);  
+                                    const photoUrl = HREF + "thumbnails/" + categoryName + "/" + encodeURIComponent(photoKey);  
                                     return (
                                         <li key={photoKey} className="bucket-image-widget-li">
                                             <div className="bucket-image-widget-img-wrap" >
@@ -156,7 +156,7 @@ export default function Form({ formDTO }: { formDTO: IFormDTO }) {
                          <ul className="form-thumbnail-list" role="list">
                         {
                             selectedPhotos.map((thumb, index) => {
-                                const src = HREF + categoryName + "/" + encodeURIComponent(thumb); 
+                                const src = HREF + "thumbnails/" + categoryName + "/" + encodeURIComponent(thumb); 
                                 return ( 
                                  <li key={index} className="thumbnail" >
                                     <label className="thb-select">

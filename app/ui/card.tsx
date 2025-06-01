@@ -14,7 +14,7 @@ export default function Card({ productDTO }: {
         <div className="card">    
              <div className="card-img-wrap" >
                 <Link href={`/product/${slug}`}>
-                    <img alt="placeholder" src={"./bakgnd.png"} className="bakgnd" />
+                    <img alt="placeholder" src={"bakgnd.png"} className="bakgnd" />
                     <img  alt={name} className="products-img" src={src} />
                 </Link>
             </div>        
