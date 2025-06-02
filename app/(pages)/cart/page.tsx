@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 import InputNumber from "@/app/ui-client/input-number";
-import { HREF, IMAGE_PREFIX } from "@/app/aws-images/s3-configuration";
+import { HREF } from "@/app/aws-images/s3-configuration";
 import { store } from "@/app/services/cart-service";
 import { ICartItem } from "@/app/DTO/cart";
 

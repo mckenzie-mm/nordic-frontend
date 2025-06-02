@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import InputNumber from "./input-number";
 import { closeCart } from "../ts/ui";
-import { HREF, IMAGE_PREFIX } from "../aws-images/s3-configuration";
+import { HREF } from "../aws-images/s3-configuration";
 import { store } from "../services/cart-service";
 import { ICartItem } from "../DTO/cart";
 

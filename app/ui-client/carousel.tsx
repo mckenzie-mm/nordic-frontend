@@ -17,10 +17,10 @@ const LEN = CAROUSEL_IMG_ARR.length;
 
 export default function Carousel() {
   // when the state changes, the component will re-render
-  const [count, setState] = useState(CAROUSEL_INIT_STATE);
+  const [count, setState] = useState<number>(CAROUSEL_INIT_STATE);
 
   useEffect(() => {
-    const id = setInterval(() => setState(c => (c + 1) % LEN), CAROUSEL_INTERVAL);
+    const id = setInterval(() => setState((c) => (c + 1) % LEN), CAROUSEL_INTERVAL);
     return () => clearInterval(id);
   }, []);
 

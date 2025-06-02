@@ -15,7 +15,8 @@ const eslintConfig = [
     extends: ['next/typescript'],
     rules: {
       "@typescript-eslint/no-this-alias": "off",
-      "@next/next/no-img-element": "off"
+      "@next/next/no-img-element": "off",
+      "@typescript-eslint/no-require-imports": "off"
     },
   }),
 ];

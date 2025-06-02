@@ -2,7 +2,7 @@
 
 const { CART_KEY } = require("../templates");
 import { ICartItem } from "../DTO/cart";
-import { ICallback, IStore } from "../domain/cart-interface";
+import { ICallback, IStore } from "../DTO/cart-interface";
 
 
 /* Localstorage is used for state management as state is not preserved from server

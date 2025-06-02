@@ -5,7 +5,6 @@ import { HREF } from "@/app/aws-images/s3-configuration";
 import Link from "next/link";
 
 
-import { _Object } from "@aws-sdk/client-s3";
 import { ChangeEvent, ChangeEventHandler, useEffect, useState } from "react";
 
 import { getPhotos } from "./getPhotos";

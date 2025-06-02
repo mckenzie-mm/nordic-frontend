@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 import { IFormDTO } from "../DTO/formDTO";
 
 export async function postProduct(req: FormData) {
-    const response = await fetch(`${WEB_API_URL}/admin/form`, {
+    await fetch(`${WEB_API_URL}/admin/form`, {
         method: "POST",
         body: req
     });
@@ -16,7 +16,7 @@ export async function postProduct(req: FormData) {
 }
 
 export async function putProduct( id: number, req: FormData ) {
-    const response = await fetch(`${WEB_API_URL}/admin/form/${id}`, {
+    await fetch(`${WEB_API_URL}/admin/form/${id}`, {
         method: "PUT",
         body: req
     });
@@ -31,7 +31,7 @@ export async function getForm(productSlug: string) {
 }
 
 export async function deleteProduct(id: number) {
-    const response = await fetch(`${WEB_API_URL}/admin/${id}`, {
+    await fetch(`${WEB_API_URL}/admin/${id}`, {
         method: "DELETE"
     });
     revalidatePath('/admin');
@@ -45,7 +45,7 @@ export async function getCount(ITEMS_PER_PAGE: number) {
 }
 
 export async function reset() {
-    const response = await fetch(`${WEB_API_URL}/seed`);
+    await fetch(`${WEB_API_URL}/seed`);
     revalidatePath('/admin');
     redirect('/admin');
 }
