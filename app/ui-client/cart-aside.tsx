@@ -8,6 +8,15 @@ import { HREF } from "../aws-images/s3-configuration";
 import { store } from "../services/cart-service";
 import { ICartItem } from "../DTO/cart";
 
+const { 
+    CART_CLOSE_BTN,
+    CART_EMPTY_MESSAGE,
+    SUBTOTAL,
+    CONTINUE_SHOPPING_BTN,
+    CHECKOUT_BTN
+} = require("@/app/templates");
+
+
 export default function CartAside() {
     const [cart, setCart] = useState<Array<ICartItem>>([]);
 
@@ -26,7 +35,7 @@ export default function CartAside() {
             <div id="cart-aside" className="cart-aside-wrap">
                 <div className="cart-aside-header">
                     <div className="cart-aside-header-wrap">
-                        <button onClick={closeCart} className="cart-aside-close-btn">Schließen</button> 
+                        <button onClick={closeCart} className="cart-aside-close-btn">{CART_CLOSE_BTN}</button> 
                     </div>
                 </div>        
                 {
@@ -34,7 +43,7 @@ export default function CartAside() {
                     <ul className="cart-aside-list" role="list">
                         <li key={"empty-cart-key"} className="cart-aside-empty">
                             <i className="nm-font nm-font-close2"></i>
-                            <p className="cart-aside-notify">Es befinden sich keine Produkte im Warenkorb.</p>
+                            <p className="cart-aside-notify">{CART_EMPTY_MESSAGE}</p>
                         </li>
                     </ul>
                 :
@@ -76,13 +85,13 @@ export default function CartAside() {
                     </ul>
                 }
                 <div className="cart-aside-summary">
-                    <p>Zwischensumme:</p>
+                    <p>{SUBTOTAL}:</p>
                     <p>$ {total.toFixed(2)}</p>
                 </div>
                 <div className="cart-aside-footer">
                     <div className="cart-aside-footer-wrap">
-                        <Link href="/" className="cart-aside-continue-btn" scroll={false} onClick={closeCart}>Weiter einkaufen</Link>
-                        <Link href="/cart" className="cart-aside-checkout-btn" scroll={false} onClick={closeCart} >Kasse</Link>
+                        <Link href="/" className="cart-aside-continue-btn" scroll={false} onClick={closeCart}>{CONTINUE_SHOPPING_BTN}</Link>
+                        <Link href="/cart" className="cart-aside-checkout-btn" scroll={false} onClick={closeCart}>{CHECKOUT_BTN}</Link>
                     </div>   
                 </div>
             </div>

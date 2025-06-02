@@ -60,5 +60,10 @@ module.exports = {
     { icon: "cm-font-pinterest", url: ""}
   ],
   CART_CLOSED_POSITION: "-410px",
-  CART_OPENED_POSITION: "0px"
+  CART_OPENED_POSITION: "0px",
+  CART_EMPTY_MESSAGE: "Es befinden sich keine Produkte im Warenkorb.",
+  CART_CLOSE_BTN: "Schließen",
+  SUBTOTAL: "Zwischensumme",
+  CONTINUE_SHOPPING_BTN: "Weiter einkaufen",
+  CHECKOUT_BTN: "Kasse"
 }

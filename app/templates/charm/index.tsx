@@ -76,5 +76,10 @@ module.exports = {
   ],
   CART_CLOSED_POSITION: "-410px",
   CART_OPENED_POSITION: "0px",
-  ASPECT_RATIO_IMAGE: 1
+  ASPECT_RATIO_IMAGE: 1,
+  CART_EMPTY_MESSAGE: "There are no products in your shopping cart.",
+  CART_CLOSE_BTN: "Close",
+  SUBTOTAL: "Subtotal",
+  CONTINUE_SHOPPING_BTN: "Continue shopping",
+  CHECKOUT_BTN: "Checkout"
 }
