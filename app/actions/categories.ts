@@ -1,9 +1,16 @@
 "use server"
 
-const WEB_API_URL = process.env.WEB_API_URL;
+import { API_ENDPOINT } from "../config";
+
 
 export async function getCategories() {
-    const response = await fetch(`${WEB_API_URL}/categories`);
-    const data = await response.json();
-    return data;
+    try {
+         const response = await fetch(`${API_ENDPOINT}/categories`);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.log(error)
+        return [];
+    }
+   
 }
