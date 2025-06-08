@@ -80,6 +80,13 @@ module.exports = {
   CART_EMPTY_MESSAGE: "There are no products in your shopping cart.",
   CART_CLOSE_BTN: "Close",
   SUBTOTAL: "Subtotal",
-  CONTINUE_SHOPPING_BTN: "Continue shopping",
-  CHECKOUT_BTN: "Checkout"
+  CONTINUE_SHOPPING_BTN: "Continue Shopping",
+  CHECKOUT_BTN: "Checkout",
+  CART_PAGE_TITLE: "Shopping Cart",
+  CART_PAGE_SUMMARY_TITLE: "Shopping Cart Total",
+  CONTINUE_TO_CHECKOUT_BTN: "Continue to Checkout",
+  ADD_VOUCHER: "Add Voucher",
+  SHIPMENT: "Shipment",
+  SHIPMENT_PRICE_LOCAL: "Within Sydney & NSW (1–2 days)",
+  SHIPMENT_PRICE_NATIONAL: "Shipping throughout Australia"
 }

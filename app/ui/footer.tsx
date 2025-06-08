@@ -13,7 +13,7 @@ export default function Footer() {
                             }
                             </ul>
                         </nav>                    
-                        <div className="flex-item-copyright">(c)2022 <Link href="/impressum">{COPYRIGHT}</Link></div>
+                        <div className="flex-item-copyright">(c)2025 <Link href="/impressum">{COPYRIGHT}</Link></div>
                     </div>    
                 </section> 
             </footer>

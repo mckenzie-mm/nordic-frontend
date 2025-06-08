@@ -8,6 +8,12 @@ import { HREF } from "@/app/aws-images/s3-configuration";
 import { store } from "@/app/services/cart-service";
 import { ICartItem } from "@/app/DTO/cart";
 
+const { 
+    CART_PAGE_TITLE, CART_PAGE_SUMMARY_TITLE, CONTINUE_SHOPPING_BTN,
+    CONTINUE_TO_CHECKOUT_BTN, SUBTOTAL, ADD_VOUCHER, SHIPMENT,
+    SHIPMENT_PRICE_LOCAL, SHIPMENT_PRICE_NATIONAL
+} = require("@/app/templates");
+
 export default function Cart() {
     const [cart, setCart] = useState<Array<ICartItem>>([]);
 
@@ -29,7 +35,7 @@ export default function Cart() {
         
             <div className="card-grid">
                 <div className="card-grid-item-left">
-                    <h2 className="card-grid-item-title">Warenkorb</h2>
+                    <h2 className="card-grid-item-title">{CART_PAGE_TITLE}</h2>
                     <ul className="cart-items" role="list">
                     {
                         cart.map(({id, name, category, price, image, slug, qty}) => 
@@ -70,22 +76,22 @@ export default function Cart() {
                     </ul>
                 </div>
                 <div className="card-grid-item-right">
-                    <h2 className="card-grid-item-title">Warenkorb-Summe</h2>
+                    <h2 className="card-grid-item-title">{CART_PAGE_SUMMARY_TITLE}</h2>
                     <div className="cart-coupon">
                         <div className="nm-coupon-inner">
-                            <span id="nm-coupon-btn">Gutschein hinzufü­gen</span>
+                            <span id="nm-coupon-btn">{ADD_VOUCHER}</span>
                         </div> 
                     </div>
-                    <div className="cart-subtotal"><span>Zwis­chen­summe</span><span className="cart-subtotal-price">$ {total.toFixed(2)}</span></div>
+                    <div className="cart-subtotal"><span>{SUBTOTAL}</span><span className="cart-subtotal-price">$ {total.toFixed(2)}</span></div>
                     <div className="cart-shipping-wrap">
-                        <p className="cart-shipping">Versand</p>
-                        <p className="cart-shipping-nsw"><span>Innerhalb Berlins & Deutschlands (1–2 Tage)</span>
+                        <p className="cart-shipping">{SHIPMENT}</p>
+                        <p className="cart-shipping-nsw"><span>{SHIPMENT_PRICE_LOCAL}</span>
                             <span className="cart-shipping-nsw-price">$ 0</span></p>
-                        <p className="cart-shipping-australia">Versand Europaweit</p>
+                        <p className="cart-shipping-australia">{SHIPMENT_PRICE_NATIONAL}</p>
                     </div>
                     <div className="cart-total"><span>Total</span><span>$ {total.toFixed(2)}</span></div>
-                    <Link href="/" className="cart-btn">Weiter einkaufen</Link>
-                    <button className="cart-paypal-btn">Weiter zur Kasse</button>
+                    <Link href="/" className="cart-btn">{CONTINUE_SHOPPING_BTN}</Link>
+                    <button className="cart-paypal-btn">{CONTINUE_TO_CHECKOUT_BTN}</button>
                 </div>
             </div>
            

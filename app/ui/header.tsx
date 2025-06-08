@@ -36,7 +36,6 @@ export default async function Header() {
             <nav className="flex-item-user">
               <ul className="list-user" role="list">
                 <li>
-                  {/* <Link href='admin'>{REGISTER}</Link> */}
                   <BtnRegister />
                 </li>
                 <li>

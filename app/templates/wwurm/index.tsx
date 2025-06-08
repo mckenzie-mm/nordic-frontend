@@ -65,5 +65,12 @@ module.exports = {
   CART_CLOSE_BTN: "Schließen",
   SUBTOTAL: "Zwischensumme",
   CONTINUE_SHOPPING_BTN: "Weiter einkaufen",
-  CHECKOUT_BTN: "Kasse"
+  CHECKOUT_BTN: "Kasse",
+  CART_PAGE_TITLE: "Warenkorb",
+  CART_PAGE_SUMMARY_TITLE: "Warenkorb-Summe",
+  CONTINUE_TO_CHECKOUT_BTN: "Weiter zur Kasse",
+  ADD_VOUCHER: "Gutschein hinzufü­gen",
+  SHIPMENT: "Versand",
+  SHIPMENT_PRICE_LOCAL: "Innerhalb Berlins & Deutschlands (1–2 Tage)",
+  SHIPMENT_PRICE_NATIONAL: "Versand Europaweit"
 }
