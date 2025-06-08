@@ -7,12 +7,10 @@ export default function BtnRegister() {
 
     const pathname = usePathname();
 
-    console.log('pathname ', pathname);
-
     if (pathname.includes("admin"))
     {
         return <Link href='/'>Sign Out</Link>
     } else {
-        return <Link href='admin'>{REGISTER}</Link> 
+        return <Link href='/admin'>{REGISTER}</Link> 
     }          
 }

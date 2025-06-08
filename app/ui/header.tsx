@@ -6,6 +6,7 @@ import SideCart from '../ui-client/cart-aside';
 import BtnCart from '../ui-client/btn-cart';
 import { getCategories } from '../actions/categories';
 import BtnRegister from '../ui-client/btn-register';
+import Menu from '../ui-client/menu';
 
 export default async function Header() {
   const categories = await getCategories();
@@ -26,12 +27,7 @@ export default async function Header() {
                 <span>Menu</span> 
             </button> */}
             <nav className="flex-item-shop">
-              <ul className="list-products" role="list">
-                <Dropdown list={categories} name={PRODUCTS_NAV_NAME} /> 
-                {
-                  NAV.map(({ name, url }: { name: string, url: string }) => <li key={name}><Link href={url}>{name}</Link></li>)
-                }
-              </ul>
+             <Menu categories={categories}/>
             </nav>
             <nav className="flex-item-user">
               <ul className="list-user" role="list">
