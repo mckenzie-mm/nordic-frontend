@@ -5,6 +5,7 @@ const { NAV, LOGO, PRODUCTS_NAV_NAME, REGISTER } = require('../templates');
 import SideCart from '../ui-client/cart-aside';
 import BtnCart from '../ui-client/btn-cart';
 import { getCategories } from '../actions/categories';
+import BtnRegister from '../ui-client/btn-register';
 
 export default async function Header() {
   const categories = await getCategories();
@@ -35,7 +36,8 @@ export default async function Header() {
             <nav className="flex-item-user">
               <ul className="list-user" role="list">
                 <li>
-                  <Link href='register'>{REGISTER}</Link>
+                  {/* <Link href='admin'>{REGISTER}</Link> */}
+                  <BtnRegister />
                 </li>
                 <li>
                   <BtnCart />

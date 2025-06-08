@@ -151,7 +151,7 @@ export default function Form({ formDTO }: { formDTO: IFormDTO }) {
                                 /> 
                             </div>     
                         </div>
-                        <label htmlFor="price" className="edit-form-label">Select Default Image:</label>
+                        <label htmlFor="price" className="edit-form-label">Selected Images:</label>
                          <ul className="form-thumbnail-list" role="list">
                         {
                             selectedPhotos.map((thumb, index) => {
@@ -168,6 +168,7 @@ export default function Form({ formDTO }: { formDTO: IFormDTO }) {
                                             hidden
                                         />
                                         <img 
+                                            style={{border: "1px solid #aaa"}}
                                             src={src} 
                                             className="thumbnail-img"
                                             alt="thumbnail image"
