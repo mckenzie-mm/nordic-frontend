@@ -5,24 +5,35 @@ import { redirect } from "next/navigation";
 import { IFormDTO } from "../DTO/formDTO";
 import { API_ENDPOINT } from "../config";
 
-
-export async function postProduct(req: FormData) {
-    await fetch(`${API_ENDPOINT}/admin/form`, {
-        method: "POST",
-        body: req
-    });
-    revalidatePath('/admin');
-    redirect('/admin');
-}
-
-export async function putProduct( id: number, req: FormData ) {
-    await fetch(`${API_ENDPOINT}/admin/form/${id}`, {
-        method: "PUT",
-        body: req
-    });
-    revalidatePath('/admin');
-    redirect('/admin');
-}
+export async function myAction(state: string | null, formData: FormData) {
+    const slug = formData.get("slug");
+    if (!slug) {
+        const res = await fetch(`${API_ENDPOINT}/admin/form`, {
+            method: "POST",
+            body: formData
+        });
+        if (!res.ok) {
+            const txt = await res.json();
+            console.log(txt)
+            return JSON.stringify(txt.error);
+        }
+        revalidatePath('/admin');
+        redirect('/admin');
+    } else {
+        const id = formData.get("id")
+        const res = await fetch(`${API_ENDPOINT}/admin/form/${id}`, {
+            method: "PUT",
+            body: formData
+        });
+        if (!res.ok) {
+            const txt = await res.json();
+            console.log(txt)
+            return JSON.stringify(txt.error);
+        }
+        revalidatePath('/admin');
+        redirect('/admin');
+    }
+};
 
 export async function getForm(productSlug: string) {
     const response = await fetch(`${API_ENDPOINT}/admin/form/${productSlug}`);
@@ -47,7 +58,6 @@ export async function getCount(ITEMS_PER_PAGE: number) {
         console.log(error)
         return 0;
     }
-    
 }
 
 export async function reset() {

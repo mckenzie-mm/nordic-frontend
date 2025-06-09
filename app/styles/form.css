@@ -291,3 +291,12 @@
   .form-thumbnail-selected {
     border: 2px solid #444;
   }
+
+  .error-msg-notify {
+    font-family: sans-serif;
+    line-height: 2;
+    width: 500px;
+    padding-left: 10px;
+    border: 2px solid red;
+    color: red;
+  }

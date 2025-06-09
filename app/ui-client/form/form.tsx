@@ -1,16 +1,23 @@
 "use client"
 const { ASPECT_RATIO_IMAGE } = require( "@/app/templates");
-import { putProduct, postProduct } from "@/app/actions/admin";
+import { myAction } from "@/app/actions/admin";
 import { HREF } from "@/app/aws-images/s3-configuration";
 import Link from "next/link";
 
 
-import { ChangeEvent, ChangeEventHandler, useEffect, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, useActionState, useEffect, useState } from "react";
 
 import { getPhotos } from "./getPhotos";
 import { IFormDTO } from "@/app/DTO/formDTO";
 
+
 export default function Form({ formDTO }: { formDTO: IFormDTO }) {
+
+
+    const id = formDTO.id;
+
+    const [message, formAction, isPending] = useActionState(myAction, null);
+
     const [photos, setPhotos] = useState<Array<string>>([]);
     const [selectedPhotos, setSelectedPhotos] = useState<Array<string>>(formDTO.images);
     const [categoryName, setCategoryName] = useState(formDTO.category); 
@@ -40,25 +47,36 @@ export default function Form({ formDTO }: { formDTO: IFormDTO }) {
         setSelectedPhotos(newSelectedPhotos);
     }
 
-    const handleProduct = formDTO.id ? putProduct.bind(null, formDTO.id) : postProduct;
-    
     return (
-        <form className="product" action={handleProduct}>          
+        <form className="product" action={formAction}>       
             <input 
                 type="text" 
                 name="slug" 
                 defaultValue={formDTO?.slug || ""} 
                 hidden
             />
+
+            { id && <input 
+                        type="text" 
+                        name="id" 
+                        defaultValue={id} 
+                        hidden
+                    />
+            }
             <section className="section">
                 <div className="edit-product-header">
                     <h2 className="edit-product-title">{formDTO.id ? "Edit" : "Create"} Product</h2>   
+                    {
+                        message &&
+                        <div><p className="error-msg-notify">{isPending ? "Loading..." : message}</p></div>
+                    }
                     <div className="edit-btn-wrap">
                         <Link href="/admin" className="edit-btn-cancel">Cancel</Link>
                         <button className="edit-btn-save" type="submit">Save</button>
                     </div>   
-                </div> 
+                </div>  
             </section>
+        
             
             <section className="section">
                 <div className="edit-product-grid">
@@ -186,4 +204,3 @@ export default function Form({ formDTO }: { formDTO: IFormDTO }) {
     );
   }
 
-  
