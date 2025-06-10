@@ -49,8 +49,8 @@ module.exports = {
       { name: "Contact Us", url: "/contact" },
     ],
   S3_ALBUM_NAME: "all-products",
-  AWS_BUCKET_NAME: "charm-mackenzie",
-  AWS_REGION: "eu-west-2",
+  AWS_BUCKET_NAME: "charm-sydney",
+  AWS_REGION: "ap-southeast-2",
   CART_KEY: "charm-access-key",
   BRAND: "/charm/brand.png",
   MAP_IMG: "/charm/map.png",
@@ -88,5 +88,7 @@ module.exports = {
   ADD_VOUCHER: "Add Voucher",
   SHIPMENT: "Shipment",
   SHIPMENT_PRICE_LOCAL: "Within Sydney & NSW (1–2 days)",
-  SHIPMENT_PRICE_NATIONAL: "Shipping throughout Australia"
+  SHIPMENT_PRICE_NATIONAL: "Shipping throughout Australia",
+  SIMILAR_PRODUCTS: "Similar Products",
+  BUY_NOW: "Buy now"
 }
