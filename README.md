@@ -8,7 +8,7 @@ The app runs on an AWS container service (ECS). It is currently only on Australi
 
 The app separates the backend code from the Nextjs into an independent dotnet service to allow for the possibility of independent frontend and backend scaling if necessary. Although the backend could have been built using nodejs to be consistent with the frontend, current research indicates that dotnet consistently outperforms nodejs in speed tests (google).
 
-The cart uses localstorage as the state management is not available on server side rendered pages. The cart is a Nextjs implementation of Steve Griffith's javascript cart (https://www.youtube.com/watch?v=oXtCOiG-7_A).
+The cart uses localstorage as state management is not available on server side rendered pages. The cart is a Nextjs implementation of Steve Griffith's javascript cart (https://www.youtube.com/watch?v=oXtCOiG-7_A).
 
 Screenshots of the website are given below:
 
