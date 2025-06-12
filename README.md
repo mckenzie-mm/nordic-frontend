@@ -20,7 +20,11 @@ Screenshots of the website are given below:
 
 ![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/3.png)
 
-![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/4.png)
+![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/5.png)
+
+![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/6.png)
+
+![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/7.png)
 
 
 This app is designed to run with a dotnet api
