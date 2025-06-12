@@ -9,7 +9,7 @@ My demonstration website is at:
 
 http://3.26.70.15/
 
-The deployment is on the AWS container service (ECS). It is currently only on Australian AWS and will be slow to load in Europe/Norway. 
+The app runs on AWS container service (ECS). It is currently only on Australian AWS and will be slow to load in Europe/Norway. 
 
 The Nextjs app is built using nodejs/typescript. The app separates the backend code from the Nextjs into an independent dotnet service to allow for the possibility of independent frontend and backend scaling if necessary.
 
