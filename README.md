@@ -1,9 +1,9 @@
 # Nextjs App
 
-This is the Nextjs front end of the demonstration setup for the company 'Nordicmade' based in Norway (https://www.nordicmade.com/) 
+This is the Nextjs front end of the demonstration setup for the company 'Nordicmade' based in Norway (https://www.nordicmade.com/). Nordicmade is a small team of dedicated WordPress and WooCommerce developers based in Oslo, Norway. They create quality, minimalist, easy-to-use themes that help people on their e-commerce journey.
 
-The code is a Nextjs/dotnet replacement for the "savoy" Wordpress app built by Nordicmade. Nordicmade is a small team of dedicated WordPress and WooCommerce developers based in Oslo, Norway. They create quality, minimalist, easy-to-use themes that help people on their e-commerce journey.
 
+The code is a Nextjs/dotnet replacement for the "savoy" Wordpress app built by Nordicmade.
 My demonstration website is at:
 
 http://3.26.70.15/
