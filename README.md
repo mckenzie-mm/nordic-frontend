@@ -1,5 +1,16 @@
 # Nextjs App
 
+This is the Nextjs front end of the demonstration setup for the company 'Nordicmade' based in Norway (https://www.nordicmade.com/) 
+
+The code is a Nextjs/dotnet replacement for the "savoy" Wordpress app built by Nordicmade. The demonstration website is at:
+
+http://3.26.70.15/
+
+It is currently deployed only on Australian AWS and will be slow to load in Europe/Norway. Screenshots of the website are given below
+
+![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme/1.png)
+
+
 This app is designed to run with a dotnet api
 backend.
 
@@ -11,7 +22,7 @@ The api endpoint to the dotnet app is defined in the config as:
 
 export const API_ENDPOINT = `http://${HOST}:${PORT}`;
 
-The PORT is 5000 for development and production
+The PORT is 3000 for development and production
 
 1) For development on host machine ".env.development"
 
@@ -26,7 +37,7 @@ The PORT is 5000 for development and production
     HOST=webapi
 
 During the build process, the dotnet app is required to be running 
-on the host machine (localhost:5000) for the generation 
+on the host machine (localhost:3000) for the generation 
 of the static pages. Nextjs will use ".env.production.local"
 first by default with HOST=localhost.
 
