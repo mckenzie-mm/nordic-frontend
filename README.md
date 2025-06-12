@@ -1,5 +1,4 @@
-# Nextjs App
-
+# Nordic Frontend (Nextjs/typescript)
 This is the Nextjs front end of the demonstration setup for the company 'Nordicmade' which is a small team of dedicated WordPress and WooCommerce developers based in Oslo, Norway. They create quality, minimalist, easy-to-use themes that help people on their e-commerce journey (https://www.nordicmade.com/). 
 
 
