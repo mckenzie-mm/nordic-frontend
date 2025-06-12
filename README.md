@@ -15,7 +15,7 @@ The Nextjs app is built using nodejs/typescript. The app separates the backend c
 
 Although the backend could have been built using nodejs to be consistent with the frontend, current research indicates that dotnet consistently outperforms nodejs in speed tests (google).
 
-The cart uses localstorage as the state management is not available on server side rendered pages. The cart is a Nextjs implementation of Steve Griffith's javascript cart (https://www.youtube.com/@SteveGriffith-Prof3ssorSt3v3/featured).
+The cart uses localstorage as the state management is not available on server side rendered pages. The cart is a Nextjs implementation of Steve Griffith's javascript cart (https://www.youtube.com/watch?v=oXtCOiG-7_A)).
 
 Screenshots of the website are given below:
 
