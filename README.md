@@ -31,10 +31,6 @@ Screenshots of the website are given below:
 
 <kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/4.png)<kbd>
 
-
-This app is designed to run with a dotnet api
-backend.
-
 ## Environment variables for Nextjs App
 
 Environment variables for the Nextjs App.
