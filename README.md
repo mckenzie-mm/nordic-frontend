@@ -4,7 +4,7 @@ This is the Nextjs front end built for the company 'Nordicmade' which is a small
 
 The code is a Nextjs/dotnet replacement for the "savoy" Wordpress app built by Nordicmade for the Austrian, "wwurm winery". My demonstration website is at: http://3.26.70.15/
 
-The same code with different text/photos, which are selected by configuration during build, is used by the Charm Accessories website (2025): https://github.com/mckenzie-mm/charm-access-2025. The Charm Accessories demonstration website is at: http://3.25.102.86/
+The same code with different text/photos, which are selected by configuration during build, is used by the Charm Accessories website (2025): https://github.com/mckenzie-mm/charm-access-2025. The Charm Accessories demonstration website is at: http://3.26.66.148/
 
 The app runs on an AWS container service (ECS). This was chosen instead of Kubernetes due to the lower cost. It is currently only on Australian AWS and will be slow to load in Europe/Norway. The code for deploying the app to AWS is at:
 https://github.com/mckenzie-mm/ecs-nordic-cdk.
