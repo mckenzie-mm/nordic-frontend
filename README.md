@@ -8,7 +8,7 @@ http://3.26.70.15/
 
 It is currently deployed only on Australian AWS and will be slow to load in Europe/Norway. Screenshots of the website are given below
 
-![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme/1.png)
+![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme/3.png)
 
 
 This app is designed to run with a dotnet api
