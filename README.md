@@ -14,17 +14,17 @@ The cart uses localstorage as state management is not available on server side r
 
 Screenshots of the website are given below:
 
-<kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/11.png?)<kbd>
+<kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme/11.png?)<kbd>
 
-<kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/22.png?)<kbd>
+<kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme/22.png?)<kbd>
 
-<kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/5.png)<kbd>
+<kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme/5.png)<kbd>
 
-<kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/6.png)<kbd>
+<kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme/6.png)<kbd>
 
-<kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/7.png)<kbd>
+<kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme/7.png)<kbd>
 
-<kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/4.png)<kbd>
+<kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme/4.png)<kbd>
 This app is designed to run with a dotnet api
 backend.
 
