@@ -4,6 +4,7 @@ This is the Nextjs front end of the demonstration setup for the company 'Nordicm
 
 
 The code is a Nextjs/dotnet replacement for the "savoy" Wordpress app built by Nordicmade for the Austrian, Wwurm winery.
+
 My demonstration website is at:
 
 http://3.26.70.15/
