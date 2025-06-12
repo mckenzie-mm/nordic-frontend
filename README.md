@@ -6,7 +6,7 @@ The code is a Nextjs/dotnet replacement for the "savoy" Wordpress app built by N
 
 The same code with different text/photos, which are selected by configuration during build, is used by the Charm Accessories website (2025): https://github.com/mckenzie-mm/charm-access-2025. The Charm Accessories demonstration website is at: http://3.25.102.86/
 
-The app runs on an AWS container service (ECS). It is currently only on Australian AWS and will be slow to load in Europe/Norway. 
+The app runs on an AWS container service (ECS). This was chosen instead of Kubernetes due to the lower cost. It is currently only on Australian AWS and will be slow to load in Europe/Norway. 
 
 The app separates the backend code from the Nextjs into an independent dotnet service to allow for the possibility of independent frontend and backend scaling if necessary. Although the backend could have been built using nodejs to be consistent with the frontend, current research indicates that dotnet consistently outperforms nodejs in speed tests (google).
 
