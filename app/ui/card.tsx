@@ -4,6 +4,7 @@ import BtnBuy from "../ui-client/btn-buy";
 import { BtnLike } from "./btns";
 import { HREF } from "../aws-images/s3-configuration";
 import { IProductDTO } from "../DTO/productDTO";
+const { ASPECT_RATIO_IMAGE } = require( "@/app/templates");
 
 export default function Card({ productDTO }: {
     productDTO: IProductDTO;
@@ -15,8 +16,7 @@ export default function Card({ productDTO }: {
         <div className="card">    
              <div className="card-img-wrap" >
                 <Link href={`/product/${slug}`}>
-                    {/* <img alt="placeholder" src={"bakgnd.png"} className="bakgnd" /> */}
-                    <img alt="fade-in" src={thb} className="bakgnd" />
+                    <img alt="fade-in" src={thb} className="bakgnd" style={{aspectRatio: ASPECT_RATIO_IMAGE}}/>
                     <img  alt={name} className="products-img" src={src} />
                 </Link>
             </div>        

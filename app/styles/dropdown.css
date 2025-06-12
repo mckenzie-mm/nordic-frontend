@@ -40,3 +40,7 @@
 
 .show {display: block;}
 
+.dropdown-menu-item {
+  text-transform: capitalize;
+}
+

@@ -32,8 +32,10 @@ export default function Dropdown({ list, name } : {
             <ul className={`dropdown-content ${state}`} >
                 <li key={-1} onClick={() => handleNavigation("")}>{PRODUCTS_NAV_FIRST_NAME}</li>
             {
-                list.map(({name}, idx) => <li key={idx} onClick={() => handleNavigation(name)}>{name}</li>)
-            }
+                list.map(({name}, idx) => {
+                    const title = name.replace("-", " ");
+                    return <li key={idx} onClick={() => handleNavigation(name)} className="dropdown-menu-item">{title}</li>
+                })            }
             </ul>
         </li>
     );

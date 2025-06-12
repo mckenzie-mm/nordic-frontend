@@ -90,5 +90,11 @@ module.exports = {
   SHIPMENT_PRICE_LOCAL: "Within Sydney & NSW (1–2 days)",
   SHIPMENT_PRICE_NATIONAL: "Shipping throughout Australia",
   SIMILAR_PRODUCTS: "Similar Products",
-  BUY_NOW: "Buy now"
+  BUY_NOW: "Buy now",
+  IMAGE_SIZE: 520,
+  IN_STOCK: "In Stock",
+  OUT_OF_STOCK: "Out of Stock",
+  IDENTITY_POOL_ID: "ap-southeast-2:53679394-0ab1-43f4-b714-58b62d36e2dd",
+  SIGN_OUT: "Sign Out"
+
 }

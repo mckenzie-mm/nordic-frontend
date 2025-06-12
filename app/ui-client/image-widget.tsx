@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { HREF } from "../aws-images/s3-configuration";
+const { ASPECT_RATIO_IMAGE, IMAGE_SIZE } = require( "@/app/templates");
 
 export default function ImageWidget({ images, thumbs, category }: {
     images: Array<string>;
@@ -18,12 +19,13 @@ export default function ImageWidget({ images, thumbs, category }: {
             thumbs.map((thumb, index) => {
                 const src = HREF + "thumbnails/" + category + "/" + encodeURIComponent(thumb); 
                 return ( 
-                <li key={index} className={`thumbnail ${(index === selected) ? "thumbnail-selected" : ""}`} >
+                <li key={index} className={`thumbnail ${(index === selected) ? "thumbnail-selected" : ""}`} style={{aspectRatio: ASPECT_RATIO_IMAGE}} >
                     <img 
                         src={src} 
                         onClick={() => handleSelect(index)} 
                         className="thumbnail-img"
                         alt="thumbnail image"
+                        style={{aspectRatio: ASPECT_RATIO_IMAGE - 0.01}}
                     />
                 </li>)
             })    
@@ -38,7 +40,7 @@ export default function ImageWidget({ images, thumbs, category }: {
                                 key={index}
                                 className = {(index === selected) ? "selected" : "not-selected"}
                             >
-                                <div className = "product-img-rel">
+                                <div className = "product-img-rel" style={{aspectRatio: ASPECT_RATIO_IMAGE, width: IMAGE_SIZE}}>
                                     <img
                                         className="product-img-abs"
                                         alt={image}
