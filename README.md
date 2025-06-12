@@ -6,11 +6,13 @@ The code is a Nextjs/dotnet replacement for the "savoy" Wordpress app built by N
 
 http://3.26.70.15/
 
-It is currently deployed only on Australian AWS and will be slow to load in Europe/Norway. Screenshots of the website are given below
+It is currently deployed only on Australian AWS and will be slow to load in Europe/Norway. 
 
-![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/1a.png?)
+Screenshots of the website are given below:
 
-![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/2a.png?)
+![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/11.png?)
+
+![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/22.png?)
 
 ![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/3.png)
 
