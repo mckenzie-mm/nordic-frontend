@@ -14,7 +14,7 @@ Although the backend could have been built using nodejs as well, current researc
 
 Screenshots of the website are given below:
 
-![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/11.png?)
+<kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/11.png?)<kbd>
 
 ![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/22.png?)
 
