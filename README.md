@@ -2,9 +2,7 @@
 This is the Nextjs front end built for the company 'Nordicmade' which is a small team of dedicated WordPress and WooCommerce developers based in Oslo, Norway. They create quality, minimalist, easy-to-use themes that help people on their e-commerce journey (https://www.nordicmade.com/). 
 
 
-The code is a Nextjs/dotnet replacement for the "savoy" Wordpress app built by Nordicmade for the Austrian, "wwurm winery". My demonstration website is at:
-
-http://3.26.70.15/
+The code is a Nextjs/dotnet replacement for the "savoy" Wordpress app built by Nordicmade for the Austrian, "wwurm winery". My demonstration website is at: http://3.26.70.15/
 
 The app runs on AWS container service (ECS). It is currently only on Australian AWS and will be slow to load in Europe/Norway. 
 
