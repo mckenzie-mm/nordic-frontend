@@ -6,7 +6,11 @@ The code is a Nextjs/dotnet replacement for the "savoy" Wordpress app built by N
 
 http://3.26.70.15/
 
-It is currently deployed only on Australian AWS and will be slow to load in Europe/Norway. 
+The deployment is on the AWS container service (ECS). It is currently only on Australian AWS and will be slow to load in Europe/Norway. 
+
+The Nextjs app is built using nodejs/typescript. The app separates the backend code from the Nextjs into an independent dotnet service to allow for the possibility of independent frontend and backend scaling if necessary.
+
+Although the backend could have been built using nodejs as well, current research indicates that dotnet consistently outperforms nodejs in speed tests (google).
 
 Screenshots of the website are given below:
 
