@@ -16,13 +16,13 @@ Screenshots of the website are given below:
 
 <kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/11.png?)<kbd>
 
-![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/22.png?)
+<kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/22.png?)<kbd>
 
-![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/5.png)
+<kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/5.png)<kbd>
 
-![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/6.png)
+<kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/6.png)<kbd>
 
-![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/7.png)
+<kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme-dark/7.png)<kbd>
 
 
 This app is designed to run with a dotnet api
