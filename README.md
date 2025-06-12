@@ -38,15 +38,15 @@ The PORT is 3000 for development and production
 
 1. For development on host machine ".env.development"
 
-HOST=localhost
+   HOST=localhost
 
 2. For building a docker container ".env.production.local"
 
-HOST=localhost
+   HOST=localhost
 
 3. For running of docker container ".env.production"
 
-HOST=webapi
+   HOST=webapi
 
 During the build process, the dotnet app is required to be running on the host machine (localhost:3000) for the generation of the static pages. Nextjs will use ".env.production.local" first by default with HOST=localhost.
 
