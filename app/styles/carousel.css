@@ -1,6 +1,6 @@
 /* Carousel */
   .container {
-    max-width: min(calc(100% - 20px), 1500px);
+    /* max-width: min(calc(100% -20px), 1500px);  */
     aspect-ratio: 2 / 1;
     overflow: hidden;
     margin-inline: auto;
@@ -90,4 +90,14 @@
     height: 10px;
     border: 2px solid #333;
     background: 0 0;
+  }
+
+  /* background image */
+  .container-bak {
+    max-width: min(calc(100% - 20px), 1500px);
+    aspect-ratio: 2 / 1;
+    overflow: hidden;
+    margin-inline: auto;
+    margin-bottom: 50px;
+    position: relative;
   }
