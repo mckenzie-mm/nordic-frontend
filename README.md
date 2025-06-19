@@ -13,8 +13,6 @@ The cart uses localstorage as state management is not available on server side r
 
 Screenshots of the website are given below.
 
-Mark Mackenzie
-
 June 2025
 
 <kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme/11.png?)<kbd>
