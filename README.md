@@ -1,9 +1,8 @@
 # Nordic Frontend (Nextjs/React/Typescript)
 This is the Nextjs front end built for the company 'Nordicmade' which is a small team of dedicated WordPress and WooCommerce developers based in Oslo, Norway. They create quality, minimalist, easy-to-use themes that help people on their e-commerce journey (https://www.nordicmade.com/). 
 
-The code is a Nextjs/dotnet replacement for the "savoy" Wordpress app built by Nordicmade for the Austrian, "wwurm winery". My demonstration website is at: http://13.55.123.37/
-
-The same code with different text/photos, which are selected by configuration during build, is used by the Charm Accessories website (2025): https://github.com/mckenzie-mm/charm-access-2025. The Charm Accessories demonstration website is at: http://13.211.213.147/
+The code is a Nextjs/dotnet replacement for the "savoy" Wordpress app built by Nordicmade for the Austrian, "wwurm winery". My demonstration website is at: http://dodo-tek.com
+The same code with different text/photos, which are selected by configuration during build, is used by the Charm Accessories website (2025): https://github.com/mckenzie-mm/charm-access-2025. The Charm Accessories demonstration website is at: http://dodo-projs.com
 
 The app runs on an AWS container service (ECS). This was chosen instead of Kubernetes due to the lower cost. It is currently only on Australian AWS and will be slow to load in Europe/Norway. The code for deploying the app to AWS is at:
 https://github.com/mckenzie-mm/ecs-nordic-cdk.
