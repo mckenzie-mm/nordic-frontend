@@ -11,7 +11,11 @@ The app separates the backend code from the Nextjs into an independent dotnet se
 
 The cart uses localstorage as state management is not available on server side rendered pages. The cart is a Nextjs implementation of Steve Griffith's javascript cart (https://www.youtube.com/watch?v=oXtCOiG-7_A).
 
-Screenshots of the website are given below:
+Screenshots of the website are given below.
+
+Mark Mackenzie
+
+June 2025
 
 <kbd>![alt text](https://github.com/mckenzie-mm/nordic-frontend/blob/main/images-readme/11.png?)<kbd>
 
