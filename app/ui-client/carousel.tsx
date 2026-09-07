@@ -15,6 +15,8 @@ const {
 
 const LEN = CAROUSEL_IMG_ARR.length;
 
+console.log('arr', CAROUSEL_IMG_ARR)
+
 export default function Carousel() {
   // when the state changes, the component will re-render
   const [count, setState] = useState<number>(CAROUSEL_INIT_STATE);
@@ -48,7 +50,7 @@ export default function Carousel() {
         {
           CAROUSEL_IMG_ARR.map((src: string, idx: number) => {
             const state = (idx === count) ? "image active" : "image inactive";
-            return <img key={idx} className={state} src={src} alt="carousel image" />;
+            return <img key={idx} className={state} src={src} alt="carousel image"/>;
           })
         }
       </div> 
